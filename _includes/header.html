@@ -1,0 +1,32 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="CS Extensions - Photoshop CC/CS6 Extensions and Scripts">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ site.baseurl}}/rss.xml">
+    <link href="{{site.baseurl}}/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="{{site.baseurl}}/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+    <link href="{{site.baseurl}}/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+    <link href="{{site.baseurl}}/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+
+    {% for social_meta in page.social %}
+        <meta {{ social_meta }} />
+    {% endfor %}
+
+    <!-- Bootstrap -->
+     <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link href="{{site.baseurl}}/css/main.min.css" rel="stylesheet">
+    {% if page.beforeafter %}
+    <link href="/css/twentytwenty.min.css" rel="stylesheet">
+    {% endif %}
+
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>

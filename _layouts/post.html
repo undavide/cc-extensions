@@ -1,0 +1,22 @@
+---
+layout: base
+class: news
+---
+
+<section>
+	<div class="container">
+		<div class="news-wrapper">
+			<article class="row news-article">
+				<h3 class="news-title">{{ page.title }} <span class="news-date">{{ page.date | date: "%m %B %Y"}}</span></h3>
+				{{ content }}
+			</article>	
+		</div>
+	</div>
+</section>
+<section>
+	<div class="container">
+
+			{% include mailchimp.html %}
+
+	</div>
+</section>

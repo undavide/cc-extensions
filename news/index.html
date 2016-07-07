@@ -1,0 +1,66 @@
+---
+layout: base
+title: Blogposts
+class: news
+---
+
+<section class="container">
+	<div class="row">
+		<h1 class="home-title" style="margin-bottom:10px">News and Updates</h1>
+		<p class="product-subtitle text-center">A Blog from the Developers</p>
+	</div>  
+</section>
+
+<section>
+	<div class="container">
+		<div class="news-wrapper">
+			{% assign postnumber = 1 %}
+
+			{% for post in paginator.posts %}
+			
+			<article class="row news-article">
+
+				<h3 class="news-title"><a href="{{ post.url }}">{{ post.title }}</a> <span class="news-date">{{ post.date | date: "%m %B %Y"}}</span></h3>
+				{{ post.content }}
+			</article>
+			
+			{% if forloop.index != 5 %}
+				<hr class="hr-products" style="margin-top: 30px; margin-bottom:10px">
+			{% endif %}
+
+		{% endfor %}
+	
+		</div>
+	</div>
+</section>
+
+{% if paginator.total_pages > 1 %}
+	<section class="container">
+		<div class="row text-center">
+			<ul class="pagination">
+				{% if paginator.previous_page %}
+					<li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a></li>
+				{% else %}
+					<li class="disabled"><a href="#">&laquo;</a></li>
+				{% endif %}
+
+				{% for page in (1..paginator.total_pages) %}
+					{% if page == paginator.page %}
+						<li class="active"><a href="#">{{ page }}</a></li>
+					{% elsif page == 1 %}
+						<li><a href="{{ '/news/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+					{% else %}
+						<li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+					{% endif %}
+				{% endfor %}
+
+				{% if paginator.next_page %}
+					<li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">&raquo;</a></li>
+				{% else %}
+					<li class="disabled"><a href="#">&raquo;</a></li>
+				{% endif %}
+			</ul>
+
+		</div>
+	</section>
+{% endif %}

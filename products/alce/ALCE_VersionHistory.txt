@@ -1,0 +1,71 @@
+=================================================
+=    ADVANCED LOCAL CONTRAST ENHANCER (ALCE)    =
+=================================================
+= © 2014 Davide Barranca, www.cs-extensions.com =
+=================================================
+=         V E R S I O N  H I S T O R Y          =
+=================================================
+
+V 2.3.0 - April 2014 
+---------------------------------- 
+- Switch to HTML Panel technology to support Photoshop CC.
+- Photoshop CS6 version is unchanged.
+
+V 2.2.1 - February 2014 
+---------------------------------- 
+- Fixed "random darker border bug" on OSX Mavericks when Turbo is selected
+
+V 2.2 - October 2013 
+---------------------------------- 
+- Compatibility update 
+- Fixed text overlay in the Batch window
+
+V 2.1.4 - July 2013
+----------------------------------
+- Fixed the text overlay bug in the ALCE Automation Service batch utility.
+
+V 2.1.3 - April 2013
+----------------------------------
+- Compatibility update (Photoshop CC)
+- Fixed links in the About window
+
+V 2.1.2 - January 2013
+----------------------------------
+- Renamed as "Advanced Local Contrast Enhancer" (formerly "ALCE") for the Adobe Exchange store only.
+- Added panel's flyout menu with Documentation, Video tutorials, Website (www.cs-extensions.com).
+- Revised EULA
+Photoshop CS6 known bug (Creative Cloud: 13.1.2 and Perpetual Customers: 13.0.4 Mac and 13.0.3 PC): it crashes when you open the Info or Settings button, please use flyout menu instead (panel's top-right corner).
+In CS6, the Batch window may show text overlay in the Save Option section. Please select a File Type and everything will be ok again.
+
+V 2.1.1 - June 2012
+----------------------------------
+- Added support for CS6
+- Few cosmetic changes, it now also synchronizes with dark/light Photoshop CS6 Themes
+- Preferences can be saved as default values (Radius, Opacity, Turbo)
+- Radius up to 500 (not recommended, but few asked about it)
+Known bugs: in CS6, the Batch window may show text overlay in the Save Option section. Please select a File Type and everything will be ok again.
+
+V 2.1 - May 2011
+----------------------------------
+- Added support for CS5.1 (in Creative Suite 5.5 bundles)
+- ALCE1 no longer exists, ALCE2 supports now CS3, CS4, CS5, CS5.1
+- ALCE can be recorded into an action
+- Added "Turbo (Softer)" options to speed up even more the processing of high radii and to get a less harsh effect
+- Added Opacity control
+- Dropped the "Radius Extended Range" checkbox, the slider behavior is now non-linear
+
+V 2.0 - November 2010
+----------------------------------
+- Added native support for CS5.
+- New batch window.
+- Really faster algorithm!
+- Radius now up to 350 (used to be 200)
+- Colorimetrically more accurate in bright, saturated areas.
+- Brand new set of training videos by Marco Olivotto.
+- Auto-update via Adobe Extension Manager (CS5 only).
+- Bugfix: it runs even if a single channel is selected.
+
+V 1.0 - December 2009
+----------------------------------
+- First release for CS4 (panel) and CS3 (script).
+- Two training videos by Davide Barranca.
