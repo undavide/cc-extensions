@@ -527,7 +527,7 @@ footer > .container {
 /* Features */
 
 .feature-ppw:before {
-	background: url(/products/ppw/images/ppw-features.png) no-repeat;
+	background: url(./images/ppw-features.png) no-repeat;
 }
 
 .ppw-margulis:before {
@@ -546,7 +546,7 @@ footer > .container {
 /* Documentation */
 
 .ppw-doc-sprite {
-	background: url(/products/ppw/images/ppw-doc-sprite.png) no-repeat;
+	background: url(./images/ppw-doc-sprite.png) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -568,7 +568,7 @@ footer > .container {
 /* Features */
 
 .feature-vitamin:before {
-	background: url(/products/vitaminbw/images/vitaminbw-features.png) no-repeat;
+	background: url(./images/vitaminbw-features.png) no-repeat;
 }
 
 .vitamin-contrast:before {
@@ -590,7 +590,7 @@ footer > .container {
 /* Documentation */
 
 .vitamin-doc-sprite {
-	background: url(/products/vitaminbw/images/vitamin-doc-sprite.png) no-repeat;
+	background: url(./images/vitamin-doc-sprite.png) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -612,7 +612,7 @@ footer > .container {
 /* Features */
 
 .feature-alce:before {
-	background: url(/products/alce/images/alce-features.png) no-repeat;
+	background: url(./images/alce-features.png) no-repeat;
 }
 
 .alce-3d:before {
@@ -634,7 +634,7 @@ footer > .container {
 /* Documentation */
 
 .alce-doc-sprite {
-	background: url(/products/alce/images/alce-doc-sprite.jpg) no-repeat;
+	background: url(./images/alce-doc-sprite.jpg) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -670,7 +670,7 @@ footer > .container {
 /* Features */
 
 .feature-dusm:before {
-	background: url(/products/doubleusm/images/dusm-features.png) no-repeat;
+	background: url(./images/dusm-features.png) no-repeat;
 }
 
 .dusm-psusm:before {
@@ -700,7 +700,7 @@ footer > .container {
 /* Documentation */
 
 .dusm-doc-sprite {
-	background: url(/products/doubleusm/images/dusm-doc-sprite.png) no-repeat;
+	background: url(./images/dusm-doc-sprite.png) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -726,7 +726,7 @@ footer > .container {
 /* Features */
 
 .feature-psprojects:before {
-	background: url(/products/psprojects/images/psprojects-features.png) no-repeat;
+	background: url(./images/psprojects-features.png) no-repeat;
 
 }
 
@@ -749,7 +749,7 @@ footer > .container {
 /* Screenshots */
 
 .psprojects-screenshot {
-	background: url(/products/psprojects/images/psprojects-screenshots-mid.png) no-repeat;
+	background: url(./images/psprojects-screenshots-mid.png) no-repeat;
 	display: block;
 	margin: 0 auto;
 }
@@ -781,7 +781,7 @@ footer > .container {
 /* Documentation */
 
 .psprojects-doc-sprite {
-	background: url(/products/psprojects/images/psprojects-doc-sprite.png) no-repeat;
+	background: url(./images/psprojects-doc-sprite.png) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -799,7 +799,7 @@ footer > .container {
 /* Features */
 
 .feature-cpt:before {
-	background: url(/products/cpt/images/cpt-features.png) no-repeat;
+	background: url(./images/cpt-features.png) no-repeat;
 }
 
 .cpt-load:before {
@@ -817,7 +817,7 @@ footer > .container {
 /* Documentation */
 
 .cpt-doc-sprite {
-	background: url(/products/cpt/images/cpt-doc-sprite.png) no-repeat;
+	background: url(./images/cpt-doc-sprite.png) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -835,7 +835,7 @@ footer > .container {
 /* Features */
 
 .feature-pcurves:before {
-	background: url(/products/parametriccurves/images/pcurves-features.png) no-repeat;
+	background: url(./images/pcurves-features.png) no-repeat;
 }
 
 .pcurves-plot:before {
@@ -857,7 +857,7 @@ footer > .container {
 /* Documentation */
 
 .pcurves-doc-sprite {
-	background: url(/products/parametriccurves/images/pcurves-doc-sprite.png) no-repeat;
+	background: url(./images/pcurves-doc-sprite.png) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -875,7 +875,7 @@ footer > .container {
 /* Features */
 
 .feature-falseprofile:before {
-	background: url(/products/falseprofile/images/falseprofile-features.png) no-repeat;
+	background: url(./images/falseprofile-features.png) no-repeat;
 }
 
 .falseprofile-gamma:before {
@@ -888,7 +888,7 @@ footer > .container {
 /* Documentation */
 
 .falseprofile-doc-sprite {
-	background: url(/products/falseprofile/images/falseprofile-doc-sprite.jpg) no-repeat;
+	background: url(./images/falseprofile-doc-sprite.jpg) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -906,7 +906,7 @@ footer > .container {
 /* Features */
 
 .feature-fadj:before {
-	background: url(/products/floatingadjustments/images/fadj-features.png) no-repeat;
+	background: url(./images/fadj-features.png) no-repeat;
 }
 
 .fadj-big:before {
@@ -920,7 +920,7 @@ footer > .container {
 /* Documentation */
 
 .fadj-doc-sprite {
-	background: url(/products/floatingadjustments/images/fadj-doc-sprite.png) no-repeat;
+	background: url(./images/fadj-doc-sprite.png) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -938,7 +938,7 @@ footer > .container {
 /* Features */
 
 .feature-tswitch:before {
-	background: url(/products/themeswitcher/images/tswitch-features.png) no-repeat;
+	background: url(./images/tswitch-features.png) no-repeat;
 	background-position: 0 0;
 }
 
@@ -947,7 +947,7 @@ footer > .container {
 /* Features */
 
 .feature-detailizer:before {
-	background: url(/products/detailizer/images/detailizer-features.png) no-repeat;
+	background: url(./images/detailizer-features.png) no-repeat;
 }
 
 .detailizer-frequency:before {
@@ -969,7 +969,7 @@ footer > .container {
 /* Documentation */
 
 .detailizer-doc-sprite {
-	background: url(/products/detailizer/images/detailizer-doc-sprite.png) no-repeat;
+	background: url(./images/detailizer-doc-sprite.png) no-repeat;
 	width:100px;
 	height: 100px;
 }
@@ -991,7 +991,7 @@ footer > .container {
 /* Features */
 
 .feature-contrastica:before {
-	background: url(/products/contrastica/images/contrastica-features.png) no-repeat;
+	background: url(./images/contrastica-features.png) no-repeat;
 }
 
 .contrastica-contrast:before {
@@ -1009,7 +1009,7 @@ footer > .container {
 /* Documentation */
 
 .contrastica-doc-sprite {
-	background: url(/products/contrastica/images/contrastica-doc-sprite.png) no-repeat;
+	background: url(./images/contrastica-doc-sprite.png) no-repeat;
 	width:100px;
 	height: 100px;
 }
