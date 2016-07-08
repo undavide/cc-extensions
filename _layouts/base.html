@@ -22,18 +22,18 @@
     </div> <!-- END WRAPPER -->
 
     <!-- script src="/js/vendor/jquery-1.11.0.min.js"></script -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <!-- script src="/js/vendor/bootstrap.min.js"></script -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
     {% if page.beforeafter %}
-    <script src="/js/vendor/jquery.event.move.min.js"></script>
-    <script src="/js/vendor/jquery.twentytwenty.min.js"></script>
+    <script src="{{site.baseurl}}/js/vendor/jquery.event.move.min.js"></script>
+    <script src="{{site.baseurl}}/js/vendor/jquery.twentytwenty.min.js"></script>
     <script> $(window).load(function() { $(".twentytwenty-container").twentytwenty() }); </script>
     {% endif %}
 
     {% if page.class == 'support' %}
-    <script src="/js/faq-patrol.min.js"></script>
+    <script src="{{site.baseurl}}/js/faq-patrol.min.js"></script>
     {% endif %}
 
 

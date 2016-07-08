@@ -1,6 +1,6 @@
 name: CC Extensions
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 url: http://www.cc-extensions.com
 baseurl: /cc-extensions
 author: Davide Barranca
