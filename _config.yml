@@ -1,5 +1,5 @@
 name: CC Extensions
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
 url: http://www.cc-extensions.com
 baseurl: /cc-extensions
