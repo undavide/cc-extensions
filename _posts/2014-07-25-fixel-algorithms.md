@@ -7,6 +7,6 @@ layout: post
 
 [Fixel Detailizer][1], a detail booster using a proprietary frequency decomposition wavelet core, is just the first product in the lineup, keep visiting CS Extensions for news and updates or [subscribe][2] to our mailing list.
 
-[a]: /news/images/Fixel-Algorithms-Logo.png "Fixel Algorithms"
-[1]: /products/detailizer "Fixel Detailizer"
-[2]: /support/index.html#mc-embedded-subscribe-form
+[a]: {{site.baseurl}}/news/images/Fixel-Algorithms-Logo.png "Fixel Algorithms"
+[1]: {{site.baseurl}}/products/detailizer "Fixel Detailizer"
+[2]: {{site.baseurl}}/support/index.html#mc-embedded-subscribe-form

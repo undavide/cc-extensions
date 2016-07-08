@@ -14,4 +14,4 @@ tags:
 
 Coming next: **Presets**. I've also, finally, submitted for approval a **Windows (PC)** version, it should be a matter of few days to have it on Exchange, stay tuned!
 
-[a]: /news/images/DoubleUSM_101.png "Double USM 1.0.1"
+[a]: {{site.baseurl}}/news/images/DoubleUSM_101.png "Double USM 1.0.1"

@@ -12,4 +12,4 @@ tags:
 
 **UPDATE**: Latest Photoshop CS6 update (Perpetual Product: 13.0.5) finally solves the problem. Strangely enough, the Subscription product (13.1.2) still shows the error. Many users, included myself, have reported issues while installing the update: basically, you've to uninstall CS6 and reinstall it from the ground up then the patch will apply correctly.
 
-[a]: /news/images/Bug.png "PopUp Bug"
+[a]: {{site.baseurl}}/news/images/Bug.png "PopUp Bug"

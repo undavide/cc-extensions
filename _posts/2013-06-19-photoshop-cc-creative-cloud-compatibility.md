@@ -15,4 +15,4 @@ tags:
 The others will come soon, with Double USM as the first priority, then Parametric Curves and Theme Switcher.  
 If you run into troubles installing them, please check you've the latest versions and if Adobe Extension Manager CC is up to date.
 
-[a]: /news/images/CC.png "Adobe Creative Cloud"
+[a]: {{site.baseurl}}/news/images/CC.png "Adobe Creative Cloud"

@@ -12,4 +12,4 @@ tags:
 
 > This is a known issue. The PS team is working on a fix. There is no ETA on when a fix will be released in an update.
 
-[a]: /news/images/BrokenIcon.png "Broken Icon"
+[a]: {{site.baseurl}}/news/images/BrokenIcon.png "Broken Icon"

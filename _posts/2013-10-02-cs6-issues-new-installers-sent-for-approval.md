@@ -14,4 +14,4 @@ tags:
 New installer for all my products have been uploaded to Exchange. Please also check to have the latest [Adobe Extension Manager][1] version available.
 
 [1]: http://www.adobe.com/exchange/em_download/ "Adobe Extension Manager Download"
-[a]: /news/images/Certificate.png "Code Certificates"
+[a]: {{site.baseurl}}/news/images/Certificate.png "Code Certificates"

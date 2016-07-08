@@ -15,4 +15,4 @@ The PPW Panel (coded by the very same Giuliana Abbiati) can load the False Profi
 [1]: https://www.adobeexchange.com/store/products/183 "False Profile on Adobe Exchange"
 [2]: http://www.cromaline.net "Giuliana Abbiati aka Cromaline"
 [3]: http://www.ledet.com/margulis/ppw "Dan Margulis' PPW Panel"
-[a]: /news/images/FalseProfile.png
+[a]: {{site.baseurl}}/news/images/FalseProfile.png

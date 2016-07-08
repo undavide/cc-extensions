@@ -15,4 +15,4 @@ tags:
 
 Now the whole lineup has been updated, so you can enjoy them on the new version!
 
-[a]: /news/images/PS.png "Photoshop CS6 support"
+[a]: {{site.baseurl}}/news/images/PS.png "Photoshop CS6 support"

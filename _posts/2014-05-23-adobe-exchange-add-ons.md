@@ -12,6 +12,6 @@ layout: post
 
 Adobe Add-ons is for CC products only. CS6 users can still rely on the [Adobe Exchange Panel][2], which won't work anymore in Photoshop CC-next.
 
-[a]: /news/images/AdobeExchange.png "Adobe Exchange 2012"
+[a]: {{site.baseurl}}/news/images/AdobeExchange.png "Adobe Exchange 2012"
 [1]: https://creative.adobe.com/addons/ "Adobe Add-ons website"
 [2]: https://www.adobeexchange.com/panel "Adobe Exchange panel for CS6"

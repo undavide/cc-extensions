@@ -20,5 +20,5 @@ sitemap:
     change_frequency_name: "change_frequency"
     priority_name: "priority"
 paginate: 5
-paginate_path: "news/page:num"
+paginate_path: "/news/page:num"
 permalink: /news/:year/:month/:title/index.html

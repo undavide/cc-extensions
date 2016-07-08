@@ -17,5 +17,5 @@ With older versions, PC users had to get a custom Windows only extension, now yo
 *If you bought Double USM (Windows) you should have received an email from the Exchange team with instruction on the migration to the “universal” product. The process is free of any charge – you need to purchase Double USM again but you’ll be automatically refunded.
 Double USM (Windows) will be permanently removed from Exchange on July 21st.*
 
-[a]: /news/images/DoubleUSM.png "Double USM"
-[1]: /products/doubleusm/ "Double USM"
+[a]: {{site.baseurl}}/news/images/DoubleUSM.png "Double USM"
+[1]: {{site.baseurl}}/products/doubleusm/ "Double USM"

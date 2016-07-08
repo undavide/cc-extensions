@@ -9,6 +9,6 @@ I've added *two new products* in the lineup, namely [Vitamin BW][1] and [Paramet
 
 90% of the content is brand new: it's worth mentioning that Documentation is now referenced within each product page and there's no more a centralized collection.
 
-[a]: /news/images/jekyllcs.png "CS Extensions website redesign"
-[1]: /products/vitaminbw "Vitamin BW - Spice up your Black & White conversions!"
-[2]: /products/parametriccurves "Parametric Curves - Plot Curves adjustment layers"
+[a]: {{site.baseurl}}/news/images/jekyllcs.png "CS Extensions website redesign"
+[1]: {{site.baseurl}}/products/vitaminbw "Vitamin BW - Spice up your Black & White conversions!"
+[2]: {{site.baseurl}}/products/parametriccurves "Parametric Curves - Plot Curves adjustment layers"

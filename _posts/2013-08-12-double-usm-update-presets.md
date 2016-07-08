@@ -13,4 +13,4 @@ You can pick up one from a built-in list, or manage your own custom Presets (Sav
 
 [1]: http://bit.ly/VWD4h4 "Double USM"
 [2]: https://creative.adobe.com/addons/products/717 "Double USM on Adobe Exchange"
-[a]: /news/images/DoubleUSM_GUI.png "Double USM"
+[a]: {{site.baseurl}}/news/images/DoubleUSM_GUI.png "Double USM"

@@ -14,4 +14,4 @@ Giuliana is also the talented coder of Dan Margulis‘ Modern Photoshop Color Wo
 
 [1]: http://www.cromaline.net "Giuliana Abbiati aka Cromaline"
 [2]: http://www.ledet.com/margulis/ppw "Dan Margulis' PPW Panel"
-[a]: /news/images/CPT.png
+[a]: {{site.baseurl}}/news/images/CPT.png

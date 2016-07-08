@@ -15,6 +15,6 @@ It’s *now available on Adobe Exchange* (see their [dedicated webpage][1]); ple
 - Functionality and Batch processing.
 - In-depth case studies with real world professional pictures.
 
-[a]: /news/images/DoubleUSM_Exchange.png
+[a]: {{site.baseurl}}/news/images/DoubleUSM_Exchange.png
 [1]: https://www.adobeexchange.com/store/products/717 "Double USM on Adobe Exchange"
-[2]: /products/doubleusm/ "Double USM"
+[2]: {{site.baseurl}}/products/doubleusm/ "Double USM"
