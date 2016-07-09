@@ -17,9 +17,16 @@
     <!-- Bootstrap -->
      <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link href="{{site.baseurl}}/css/main.min.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/main.css" rel="stylesheet">
+<!--    <link href="{{site.baseurl}}/css/main.min.css" rel="stylesheet">-->
     {% if page.beforeafter %}
     <link href="{{site.baseurl}}/css/twentytwenty.min.css" rel="stylesheet">
+    {% endif %}
+
+    {% if page.author == "Fixel Algorithms" %}
+    <script type="text/javascript" async
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
     {% endif %}
 
     

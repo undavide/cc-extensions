@@ -1031,21 +1031,104 @@ footer > .container {
 
 /* ---- COMMON ----*/
 
+.btn-primary-red {
+  color: #fff;
+  background-color: #ef4a4a;
+  border-color: #ca3f3f;
+}
+.btn-primary-red:hover,
+.btn-primary-red:focus,
+.btn-primary-red.focus,
+.btn-primary-red:active,
+.btn-primary-red.active,
+.open > .dropdown-toggle.btn-primary-red {
+  color: #fff;
+  background-color: #ca3f3f;
+  border-color: #ca3f3f;
+}
+.btn-primary-red:active,
+.btn-primary-red.active,
+.open > .dropdown-toggle.btn-primary-red {
+  background-image: none;
+}
+.btn-primary-red.disabled,
+.btn-primary-red[disabled],
+fieldset[disabled] .btn-primary-red,
+.btn-primary-red.disabled:hover,
+.btn-primary-red[disabled]:hover,
+fieldset[disabled] .btn-primary-red:hover,
+.btn-primary-red.disabled:focus,
+.btn-primary-red[disabled]:focus,
+fieldset[disabled] .btn-primary-red:focus,
+.btn-primary-red.disabled.focus,
+.btn-primary-red[disabled].focus,
+fieldset[disabled] .btn-primary-red.focus,
+.btn-primary-red.disabled:active,
+.btn-primary-red[disabled]:active,
+fieldset[disabled] .btn-primary-red:active,
+.btn-primary-red.disabled.active,
+.btn-primary-red[disabled].active,
+fieldset[disabled] .btn-primary-red.active {
+  background-color: #ef4a4a;
+  border-color: #ca3f3f;
+}
+
+.btn-primary-blue {
+  color: #fff;
+  background-color: #278EE7;
+  border-color: #2e6da4;
+}
+.btn-primary-blue:hover,
+.btn-primary-blue:focus,
+.btn-primary-blue.focus,
+.btn-primary-blue:active,
+.btn-primary-blue.active,
+.open > .dropdown-toggle.btn-primary-blue {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
+.btn-primary-blue:active,
+.btn-primary-blue.active,
+.open > .dropdown-toggle.btn-primary-blue {
+  background-image: none;
+}
+.btn-primary-blue.disabled,
+.btn-primary-blue[disabled],
+fieldset[disabled] .btn-primary-blue,
+.btn-primary-blue.disabled:hover,
+.btn-primary-blue[disabled]:hover,
+fieldset[disabled] .btn-primary-blue:hover,
+.btn-primary-blue.disabled:focus,
+.btn-primary-blue[disabled]:focus,
+fieldset[disabled] .btn-primary-blue:focus,
+.btn-primary-blue.disabled.focus,
+.btn-primary-blue[disabled].focus,
+fieldset[disabled] .btn-primary-blue.focus,
+.btn-primary-blue.disabled:active,
+.btn-primary-blue[disabled]:active,
+fieldset[disabled] .btn-primary-blue:active,
+.btn-primary-blue.disabled.active,
+.btn-primary-blue[disabled].active,
+fieldset[disabled] .btn-primary-blue.active {
+  background-color: #278EE7;
+  border-color: #2e6da4;
+}
 .btn-buy {
-	background-color: #278EE7;
 	margin: 30px 0;
-	padding: 30px 40px;
+	padding: 30px 30px;
 	font-size: 30px;
 	font-weight: 200;
 	line-height: 1.4;
 	border-radius: 6px;
 	border: none;
 	box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 5px rgba(0,0,0,.5);
+    color: white;
 }
 
 @media (max-width: 767px) { 
 	.btn-buy {
-		background-color: #278EE7;
+/*		background-color: #278EE7;*/
 		margin: 30px 0;
 		padding: 30px 40px;
 		font-size: 22px;
@@ -1059,7 +1142,7 @@ footer > .container {
 
 @media (max-width: 320px) { 
 	.btn-buy {
-        background-color: #278EE7;
+/*        background-color: #278EE7;*/
         width: 260px;
 		margin: 30px 0;
 		padding: 10px 10px;
