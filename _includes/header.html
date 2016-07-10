@@ -5,11 +5,16 @@
     <title>{{ page.title }}</title>
     <meta name="description" content="CC Extensions - Photoshop Plugins, Extensions and Scripts">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ site.baseurl}}/rss.xml">
-    <link href="{{site.baseurl}}/apple-touch-icon.png" rel="apple-touch-icon" />
-    <link href="{{site.baseurl}}/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
-    <link href="{{site.baseurl}}/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
-    <link href="{{site.baseurl}}/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
-
+    
+    <!-- FAVICON-->
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="{{site.baseurl}}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="{{site.baseurl}}/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{site.baseurl}}/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="{{site.baseurl}}/manifest.json">
+    <link rel="mask-icon" href="{{site.baseurl}}/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+   
     {% for social_meta in page.social %}
         <meta {{ social_meta }} />
     {% endfor %}
