@@ -20,7 +20,7 @@ class: news
 			
 			<article class="row news-article">
 
-				<h3 class="news-title"><a href="{{ post.url }}">{{ post.title }}</a> <span class="news-date">{{ post.date | date: "%m %B %Y"}}</span></h3>
+				<h3 class="news-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> <span class="news-date">{{ post.date | date: "%m %B %Y"}}</span></h3>
 				{{ post.content }}
 			</article>
 			
