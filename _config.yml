@@ -2,7 +2,6 @@ name: CC Extensions
 markdown: kramdown
 highlighter: rouge
 url: http://www.cc-extensions.com
-baseurl: /cc-extensions
 author: Davide Barranca
 description: Photoshop Extensions and Scripts
 include: ['.htaccess']
