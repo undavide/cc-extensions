@@ -2,6 +2,7 @@
 title: 'Introducing Fixel Algorithms'
 author: Davide Barranca
 layout: post
+class: news
 ---
 
 ![Fixel Algorithms][a]I'm proud to announce a partnership with Fixel Algorithms, a company specialized in the development of Image Processing algorithms. They have been producing plugins for After Effects (video), and we've joined our forces to bring them as Plugins, Scripts and Panels in Photoshop.

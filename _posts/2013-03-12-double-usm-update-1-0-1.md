@@ -2,6 +2,7 @@
 title: Double USM update 1.0.1
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - Double USM
   - update

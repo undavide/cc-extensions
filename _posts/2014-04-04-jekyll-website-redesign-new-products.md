@@ -2,6 +2,7 @@
 title: 'Website redesign and new products!'
 author: Davide Barranca
 layout: post
+class: news
 ---
 ![Jekyll Redesign][a]As you have hopefully noticed, I've rebuilt the cs-extensions website from the ground up - it's now *way faster*, lighter and nicer too. I've kissed bye bye Wordpress with no regrets: the whole thing is now static, handcrafted with Bootstrap and based on Jekyll.
 

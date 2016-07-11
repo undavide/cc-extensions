@@ -2,6 +2,7 @@
 title: 'Photoshop CS6 Bug: Popup crash [half-SOLVED]'
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - bug
   - CS6

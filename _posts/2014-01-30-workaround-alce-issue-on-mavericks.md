@@ -2,6 +2,7 @@
 title: Workaround for ALCE issues on Mavericks
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - ALCE
   - Mavericks

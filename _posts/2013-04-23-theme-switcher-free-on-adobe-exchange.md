@@ -2,6 +2,7 @@
 title: Theme Switcher on Adobe Exchange
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - CS6
   - Photoshop

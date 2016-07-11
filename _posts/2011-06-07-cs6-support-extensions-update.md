@@ -2,6 +2,7 @@
 title: 'CS6 Support Extensions update!'
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - ALCE
   - CPT

@@ -2,6 +2,7 @@
 title: 'New Adobe Add-ons website'
 author: Davide Barranca
 layout: post
+class: news
 ---
 ![Adobe Add-ons][a][Adobe Add-ons][1] is replacing the Exchange Panel as the new, improved Creative Cloud Extensions official store.
 

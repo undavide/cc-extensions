@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>{{ page.title }}</title>
     <meta name="description" content="CC Extensions - Photoshop Plugins, Extensions and Scripts">
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ site.baseurl}}/rss.xml">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{site.baseurl}}/rss.xml">
     
     <!-- FAVICON-->
     
@@ -20,10 +20,13 @@
     {% endfor %}
 
     <!-- Bootstrap -->
-     <!-- <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!--    <link href="/css/bootstrap.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link href="{{site.baseurl}}/css/main.css" rel="stylesheet">
-<!--    <link href="{{site.baseurl}}/css/main.min.css" rel="stylesheet">-->
+    
+    <!--    Site CSS - minified or not-->
+    <link href="{{site.baseurl}}/css/main.min.css" rel="stylesheet">
+    <!--    <link href="{{site.baseurl}}/css/main.css" rel="stylesheet">-->
+    
     {% if page.beforeafter %}
     <link href="{{site.baseurl}}/css/twentytwenty.min.css" rel="stylesheet">
     {% endif %}

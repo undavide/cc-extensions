@@ -3,6 +3,7 @@ title: 'Double USM 1.2 update: Presets'
 author: Davide Barranca
 excerpt: 'Double USM updates to version 1.2.0 (Mac/PC, CS6/CC) adding a widely requested feature: Presets. Pick up one from the built-in list or create your own custom presets.'
 layout: post
+class: news
 tags:
   - Double USM
   - presets

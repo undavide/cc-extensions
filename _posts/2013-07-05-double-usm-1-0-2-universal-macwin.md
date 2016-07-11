@@ -3,6 +3,7 @@ title: Double USM 1.0.2 (universal Mac/Win)
 author: Davide Barranca
 excerpt: Double USM updates to version 1.0.2 as a single "universal" Mac + Windows product supporting Photoshop CS6 and CC.
 layout: post
+class: news
 tags:
   - CC
   - Double USM

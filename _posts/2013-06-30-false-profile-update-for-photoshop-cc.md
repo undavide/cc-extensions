@@ -3,6 +3,7 @@ title: False Profile update for Photoshop CC
 author: Davide Barranca
 excerpt: False Profile version 2.0.3, supporting Photoshop CC, has been released on Adobe Exchange by Giuliana Abbiati.
 layout: post
+class: news
 tags:
   - False Profile
   - ICC

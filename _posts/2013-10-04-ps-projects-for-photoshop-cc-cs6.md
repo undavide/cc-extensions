@@ -2,6 +2,7 @@
 title: PS Projects for Photoshop CC/CS6
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - Adobe Exchange
   - CC

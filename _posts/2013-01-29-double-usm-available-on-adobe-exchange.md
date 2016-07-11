@@ -2,6 +2,7 @@
 title: Double USM lands on Adobe Exchange
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - Double USM
   - Photoshop

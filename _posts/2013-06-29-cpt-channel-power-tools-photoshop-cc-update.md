@@ -2,6 +2,7 @@
 title: 'CPT - Channel Power Tools for Photoshop CC'
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - CPT
   - Photoshop CC

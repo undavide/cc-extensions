@@ -2,6 +2,7 @@
 title: 'CS6 issues - New installers sent for approval'
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - Code Signing Certificate
   - Extension Manager CS6

@@ -2,6 +2,7 @@
 title: Extension Manager CC errors
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - Adobe Exchange
   - error

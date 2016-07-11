@@ -2,6 +2,7 @@
 title: Photoshop CC compatibility
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - CC
   - Creative Cloud

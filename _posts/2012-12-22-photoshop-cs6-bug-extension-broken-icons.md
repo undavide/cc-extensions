@@ -2,6 +2,7 @@
 title: 'Photoshop CS6 Bug: Broken icons'
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - bug
   - CS6

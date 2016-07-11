@@ -2,6 +2,7 @@
 title: Note for Exchange customers in 2012
 author: Davide Barranca
 layout: post
+class: news
 tags:
   - 2012
   - ALCE
