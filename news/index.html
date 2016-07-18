@@ -20,8 +20,8 @@ class: news
 			
 			<article class="row news-article">
 
-				<h3 class="news-title"><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'  }}">{{ post.title }}</a> <span class="news-date">{{ post.date | date: "%m %B %Y"}}</span></h3>
-				{{ post.content }}
+				<h3 class="news-title"><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/'  }}">{{ post.title }}</a> <span class="news-date">{{ post.date | date_to_long_string }}</span></h3>
+				{{ post.content | truncatewords: 50 }}
 			</article>
 			
 			{% if forloop.index != 5 %}
