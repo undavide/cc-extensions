@@ -232,6 +232,14 @@ footer > .container {
 	margin: 20px;
 }
 
+.product-fixel-badge {
+	background: url("../images/products-fixel-sprite.jpg") no-repeat;
+	width: 150px;
+	height:200px;
+	display: inline-table;
+	margin: 20px;
+}
+
 /* PAY PRODUCTS */
 .product-badge-vitamin {
 	background-position: 0 0;
@@ -242,19 +250,26 @@ footer > .container {
 .product-badge-dusm {
 	background-position: -300px 0;
 }
-.product-badge-detailizer {
+.product-badge-psprojects {
 	background-position: -450px 0;
 }
-.product-badge-contrastica {
-	background-position: -600px 0;
-}
-.product-badge-psprojects {
-	background-position: -600px 0;
-}
 .product-badge-cpt {
-	background-position: -750px 0;
+	background-position: -600px 0;
 }
+/* FIXEL PRODUCTS */
+
+.product-badge-detailizer {
+	background-position: 0 0;
+}
+.product-badge-contrastica {
+	background-position: -150px 0;
+}
+.product-badge-edgehancer {
+	background-position: -300px 0;
+}
+
 /* FREE PRODUCTS */
+
 .product-badge-pcurves {
 	background-position: 0 0;
 }
@@ -268,7 +283,7 @@ footer > .container {
 	background-position: -450px 0;
 }
 .product-badge-ppw {
-	background-position: -750px 0;
+	background-position: -600px 0;
 }
 
 
@@ -1028,6 +1043,49 @@ footer > .container {
 	background-position: -200px 0;
 }
 
+/* ---- EDGEHANCER ----*/ 
+
+/* Features */
+
+.feature-edgehancer:before {
+	background: url({{site.baseurl}}/products/edgehancer/images/edgehancer-features.png) no-repeat;
+}
+
+.edgehancer-unused:before {
+	background-position: 0px 0px;
+}
+
+.edgehancer-algorithm:before {
+	background-position: -44px 0px;
+}
+
+.edgehancer-hdr:before {
+	background-position: -88px 0px;
+}
+
+.edgehancer-script:before {
+	background-position: -132px 0px;
+}
+
+/* Documentation */
+
+.edgehancer-doc-sprite {
+	background: url({{site.baseurl}}/products/edgehancer/images/edgehancer-doc-sprite.png) no-repeat;
+	width:100px;
+	height: 100px;
+}
+
+.edgehancer-manual {
+	background-position: 0 0;
+}
+
+.edgehancer-video {
+	background-position: -100px 0;
+}
+
+.edgehancer-quickstart {
+	background-position: -200px 0;
+}
 
 /* ---- COMMON ----*/
 
