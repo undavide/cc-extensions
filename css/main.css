@@ -267,6 +267,10 @@ footer > .container {
 .product-badge-edgehancer {
 	background-position: -300px 0;
 }
+.product-badge-zoneselector {
+	background-position: -450px 0;
+}
+
 
 /* FREE PRODUCTS */
 
@@ -1084,6 +1088,50 @@ footer > .container {
 }
 
 .edgehancer-quickstart {
+	background-position: -200px 0;
+}
+
+/* ---- ZONE SELECTOR ----*/ 
+
+/* Features */
+
+.feature-zoneselector:before {
+	background: url({{site.baseurl}}/products/zoneselector/images/zoneselector-features.png) no-repeat;
+}
+
+.zoneselector-unused:before {
+	background-position: 0px 0px;
+}
+
+.zoneselector-algorithm:before {
+	background-position: -44px 0px;
+}
+
+.zoneselector-hdr:before {
+	background-position: -88px 0px;
+}
+
+.zoneselector-script:before {
+	background-position: -132px 0px;
+}
+
+/* Documentation */
+
+.zoneselector-doc-sprite {
+	background: url({{site.baseurl}}/products/zoneselector/images/zoneselector-doc-sprite.png) no-repeat;
+	width:100px;
+	height: 100px;
+}
+
+.zoneselector-manual {
+	background-position: 0 0;
+}
+
+.zoneselector-video {
+	background-position: -100px 0;
+}
+
+.zoneselector-quickstart {
 	background-position: -200px 0;
 }
 

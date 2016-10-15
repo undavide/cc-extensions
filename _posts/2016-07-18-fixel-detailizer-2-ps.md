@@ -26,9 +26,7 @@ In a layman words, it means looking on the image at different resolutions / scal
 For instance, given an image at a given size, the Multi Scale approach suggests processing it at its original size and half of that and half of that and so on...  
 Well, at least it is one way to look at it.  
 
-
 ![Fixel Detailizer 2 Multi Scale][4]  
-
 
 The approaches to implement Multi Scale Analysis are endless.  
 Yet in the Image Processing World it all started with the [Image Pyramid][5].  
