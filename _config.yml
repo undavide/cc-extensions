@@ -6,7 +6,9 @@ author: Davide Barranca
 description: Photoshop Extensions and Scripts
 include: ['.htaccess']
 timezone: Europe/Rome
-gems: [jekyll-paginate]
+plugins:
+    - jekyll-sitemap
+    - jekyll-paginate
 sitemap:
     file: "/sitemap.xml"
     exclude:

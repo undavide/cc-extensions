@@ -1,6 +1,6 @@
 ---
 layout: base
-title: Fixel Algorithms Support 
+title: Fixel Algorithms Support
 sidebar: false
 beforeafter: false
 class: support
@@ -15,7 +15,7 @@ class: support
 			<label for="filter" class="sr-only">Search the FAQs</label>
 			<input id="filter" class="support-searchbox" placeholder="Keywords Search"/>
 		</div>
-	</div>  
+	</div>
 </section>
 
 <section>
@@ -57,6 +57,18 @@ class: support
 							</dd>
 						</div>
 						<div class="def">
+							<dt>I'm having some issues with Photoshop CS6 64 Bit on Windows (Plug In doesn't show in the Filter Menu / <code>libiomp5md.dll</code> file is missing), What's going on?</dt>
+							<dd>Adobe, in later versions of Photoshop, ships Photoshop with Intel OpenMP library we utilize for Multi Threaded code.<br>
+							Hence users of CS6 which uses our products which utilizes Intel OpenMP Library (<code>libiomp5md.dll</code>) should install <a href="https://software.intel.com/sites/default/files/managed/b2/f7/w_ccompxe_redist_msi_2015.6.285.zip" target="_blank">Intel® C++ 2015 Update 6 Compilers Redistributable Libraries</a>.<br>
+							Please contact us if you have farther issues.</dd>
+						</div>
+						<div class="def">
+							<dt>Photoshop CC on Windows states that <code>libiomp5md.dll</code> file is missing, what should I do?</dt>
+							<dd>Fixel utilizes <code>libiomp5md.dll</code> (Intel OpenMP Library) which ships within Photoshop. The <code>libiomp5md.dll</code> is utilized for Multi Threaded code.<br>
+							If you encounter any issues related to Intel OpenMP Library (<code>libiomp5md.dll</code>) you should install <a href="https://software.intel.com/en-us/articles/intel-compilers-redistributable-libraries-by-version" target="_blank">Intel® C++ and Fortran Compilers Redistributable Libraries</a>.<br>
+							Please contact us to be advised on the specific version to download.</dd>
+						</div>
+						<div class="def">
 							<dt>None of the above worked, what can I do?</dt>
 							<dd>If you bought the product from a Deals website, the ZIP you've downloaded already contains the assets and instruction for a <b>Manual Installation</b>, so go ahead with it. It's a matter of moving few files around in a couple of folders, the instruction will thoroughly guide you through the process. <br>
 							If you bought via Adobe Add-on, get in touch with me with a proof of the purchase and I will send you everything you need (see my email at the bottom of the page).</dd>
@@ -73,7 +85,7 @@ class: support
 						<div class="def">
 							<dt>I run it but nothing happens: there's no user interface, what's wrong?</dt>
 							<dd>
-								Please make sure to use, in the Filter menu, the items that are at the bottom and <b>not</b> the ones within a "Fixel Algorithms" submenu (which are there for technical and support reasons). 
+								Please make sure to use, in the Filter menu, the items that are at the bottom and <b>not</b> the ones within a "Fixel Algorithms" submenu (which are there for technical and support reasons).
 								<br><br>
 								<figure>
 									<a href="images/Fixel-Algorithms-Filter-menu.png"><img src="images/Fixel-Algorithms-Filter-menu.png" class= "img-center img-responsive" style="margin-bottom: 10px" width="222" height="288" alt="Photoshop Filter menu"></a>
@@ -84,7 +96,7 @@ class: support
 						<div class="def">
 							<dt>Photoshop crashes, can you fix it?</dt>
 							<dd>Sure.<br>Fixel's products uses advanced features of computer's CPU to be as fast as possible - if your machine is a bit old we can build a customized filter for your very CPU.<br>
-							First try to use (that's for support only! Do <b>not</b> do this normally!) the Filters that you find within the Filter > Fixel Algorithms submenu (e.g. Filter > Fixel Algorithms > Fixel Detailizer 2). Normally, it won't do anything: it doesn't show the user interface, it doesn't modify the image, it is for debugging purposes only. 
+							First try to use (that's for support only! Do <b>not</b> do this normally!) the Filters that you find within the Filter > Fixel Algorithms submenu (e.g. Filter > Fixel Algorithms > Fixel Detailizer 2). Normally, it won't do anything: it doesn't show the user interface, it doesn't modify the image, it is for debugging purposes only.
 							<br>
 							Does it crash anyway? If this is the case, please get in touch with us at fixel@fixelalgorithms.com and we'll provide you with a customized filter.</dd>
 						</div>
@@ -100,7 +112,7 @@ class: support
 						<div class="def">
 							<dt>I'm not satisfied, I'd like to be refunded.</dt>
 							<dd>
-								We're sorry to hear that! We do our best to craft the softwares we put for sale. If you bought via Deals website please refer to their customer support - otherwise if you got Fixel's products via Adobe Add-ons, send an email to asupport@adobe.com and they will assist you in the process. 
+								We're sorry to hear that! We do our best to craft the softwares we put for sale. If you bought via Deals website please refer to their customer support - otherwise if you got Fixel's products via Adobe Add-ons, send an email to asupport@adobe.com and they will assist you in the process.
 							</dd>
 						</div>
 					</dl>
@@ -108,7 +120,7 @@ class: support
 
 		</div>
 	</div>
-	
+
 </section>
 
 <section>
@@ -118,8 +130,7 @@ class: support
 			</div>
 			<div class="col-sm-6 faq" style="padding-left:20px">
 				{% include mailchimp.html %}
-			</div>           
+			</div>
 		</div>
 	</div>
 </section>
-			
