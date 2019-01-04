@@ -3,8 +3,6 @@
 /*
  color1: #ef4a4a;
  color2: #ef954a;
-
-
  */
 
  /*---- COMMON ---- */
@@ -270,6 +268,12 @@ footer > .container {
 .product-badge-zoneselector {
 	background-position: -450px 0;
 }
+.product-badge-recolor {
+	background-position: -600px 0;
+}
+.product-badge-fft {
+	background-position: -750px 0;
+}
 
 
 /* FREE PRODUCTS */
@@ -290,6 +294,56 @@ footer > .container {
 	background-position: -600px 0;
 }
 
+/* ---- RECOLOR ----*/
+
+/* Features */
+
+.feature-recolor:before {
+	background: url({{site.baseurl}}/products/recolor/images/recolor-features.png) no-repeat;
+}
+
+.recolor-first:before {
+	background-position: 0px 0px;
+}
+
+.recolor-second:before {
+	background-position: -44px 0px;
+}
+
+.recolor-third:before {
+	background-position: -88px 0px;
+}
+
+.recolor-fourth:before { /* UNUSED */
+	background-position: -132px 0px;
+}
+
+.recolor-fifth:before { /* UNUSED */
+	background-position: -176px 0px;
+}
+
+.recolor-sixth:before { /* UNUSED */
+	background-position: -220px 0px;
+}
+/* Documentation */
+
+.recolor-doc-sprite {
+	background: url({{site.baseurl}}/products/recolor/images/recolor-doc-sprite.png) no-repeat;
+	width:100px;
+	height: 100px;
+}
+
+.recolor-intro {
+	background-position: 0 0;
+}
+
+.recolor-video {
+	background-position: -100px 0;
+}
+
+.recolor-quickstart {
+	background-position: -200px 0;
+}
 
 
 /* ---- SIDEBAR ----*/
