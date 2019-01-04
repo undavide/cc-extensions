@@ -294,6 +294,50 @@ footer > .container {
 	background-position: -600px 0;
 }
 
+/* ---- FFT WIZARD ----*/
+
+/* Features */
+
+.feature-fftwizard:before {
+	background: url({{site.baseurl}}/products/fftwizard/images/fftwizard-features.png) no-repeat;
+}
+
+.fftwizard-unused:before {
+	background-position: 0px 0px;
+}
+
+.fftwizard-algorithm:before {
+	background-position: -44px 0px;
+}
+
+.fftwizard-hdr:before {
+	background-position: -88px 0px;
+}
+
+.fftwizard-script:before {
+	background-position: -132px 0px;
+}
+
+/* Documentation */
+
+.fftwizard-doc-sprite {
+	background: url({{site.baseurl}}/products/fftwizard/images/fftwizard-doc-sprite.png) no-repeat;
+	width:100px;
+	height: 100px;
+}
+
+.fftwizard-manual {
+	background-position: 0 0;
+}
+
+.fftwizard-video {
+	background-position: -100px 0;
+}
+
+.fftwizard-quickstart {
+	background-position: -200px 0;
+}
+
 /* ---- RECOLOR ----*/
 
 /* Features */
@@ -344,7 +388,6 @@ footer > .container {
 .recolor-quickstart {
 	background-position: -200px 0;
 }
-
 
 /* ---- SIDEBAR ----*/
 
