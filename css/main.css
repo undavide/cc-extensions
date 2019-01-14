@@ -184,6 +184,13 @@ h3.feat-photoshop:before {
 	background-position: 62px 0px;
 }
 
+.center-img {
+	float:none !important;
+	display: block;
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
  /*---- MAIN PAGE ---- */
 
 .home-title {
