@@ -1,0 +1,8 @@
+I"�<p><img src="/news/images/ExtensionManager.png" alt="Extension Manager" title="Extension Manager" />Adobe Extension Manager CC may pop up error messages when installing extensions via the Adobe Exchange panel. Typically, something like:</p>
+<blockquote>
+  <p>“Error occurred during copying file… to… The extension will not be installed.”</p>
+</blockquote>
+
+<p>These are known issues and Adobe engineers are working on a fix. In the meantime, I’ve collected their suggestion in a <a href="http://www.davidebarranca.com/2013/06/adobe-extension-manager-cc-and-exchange-issues/" title="Troubleshooting">troubleshooting</a> page that I recommend you to read.</p>
+
+:ET

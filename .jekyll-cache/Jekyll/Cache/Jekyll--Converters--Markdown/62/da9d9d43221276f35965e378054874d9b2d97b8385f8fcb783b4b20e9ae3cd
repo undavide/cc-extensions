@@ -1,0 +1,215 @@
+I":@<p><img src="/news/images/LuminosityMask001/BlogPostIcon.png" alt="Luminosity Mask 001" title="Luminosity Mask 001" /></p>
+
+<p>Everywhere you go you read about Luminosity Masks.<br />
+I’m really surprised it doesn’t have its own Wikipedia Page (Maybe we’ll take care of that).<br />
+It is truly a great tool to have in your toolbox, very powerful when used correctly.<br />
+Its greatness by its simplicity.</p>
+
+<p>But how does it works? Not in the sense how to create it, but what really happens?<br />
+Well, let’s try answering that and doing it deep (Hopefully interesting).</p>
+
+<h2 id="the-basics">The Basics</h2>
+
+<h3 id="step-001---it-all-starts-with-a-grayscale-image">Step 001 - It All Starts with a Grayscale Image</h3>
+<p>You can have image with all the colors in the world but the first step in creating Luminosity Mask is by having a Grayscale image (Single Channel Image).
+In most cases it means to calculate the Luminosity Channel of the given image.<br />
+Each one with his own recipe (Most actions / panels based solution uses Photoshop Luminosity selection - <code class="language-plaintext highlighter-rouge">Ctrl + Left Mouse Click</code> on the RGB Channel in the Channel Tab).</p>
+
+<p><br />
+<img src="/news/images/LuminosityMask001/GrayScaleImageGeneration.png" alt="Figure 001" title="Figure 001 - Extracting Luminosity Channel from RGB Image" class="center-img" />
+<br /></p>
+
+<p>By the way, any “Single Channel” image can do here.<br />
+The best cohice (Channel or processed grayscale layer) is the one where the image features you want to select are more evident and easily separable from the rest.<br />
+It could be the Blue from RGB, the Magenta from CMYK, whatever, be creative.</p>
+
+<p>Well, in case of a grayscale image, life is easier - one could just step over to Step 002.</p>
+
+<h3 id="step-002---apply-pixel-wise-transformation-on-the-grayscale-image">Step 002 - Apply Pixel Wise Transformation on the Grayscale Image</h3>
+
+<p>Now, this is where the magic happens.<br />
+The idea is very simple, given the Gray Scale image as input, the output per pixel is a function of its value only.</p>
+
+<p>Well, this sentence might take some of us back to horrible school days but it is really simple when you think about it.<br />
+Pixel comes in, states its value and gets an output value based only on its value, and voilà we have a Luminosity Mask.<br />
+The name says it all, the Mask depends solely on the Luminosity (Tonal Range value) of the pixels.<br />
+It has nothing to do with their location, not their surrounding pixels.<br />
+Just using the Luminosity value. Nothing more, nothing less. Power by simplicity.</p>
+
+<p><br />
+<img src="/news/images/LuminosityMask001/MaskGenerator.png" alt="Figure 002" title="Figure 002 - Mapping Grayscale Image into Luminosity Mask" class="center-img" />
+<br /></p>
+
+<p>The above Figure represents a “Mask Generator”.<br />
+The input pixels values are in the upper section. They get processed by this “black box”, which operates based on a function $ f \left( x \right) $ and the pixel output that is generated is found in the bottom section.
+At the output, everything is black (Low values) with the exception of pixels around 128 that are mapped to white (High values) which suggests that a “Midtones Mask” has been generated.</p>
+
+<p>Simple fact, images are discrete in their values.
+For instance, in the case of an 8 Bit image, the discrete values are in the range {0, 1, …, 254, 255}, occupying 256 (Which equals $ {2}^{8} $) available slots.<br />
+So a <em>Mask Generator</em> (Luminosity Mask Generator) has to designate an output value for each value in the input discrete <em>domain</em>.</p>
+
+<p>If the output image is also, let’s say 8 Bit, then the output values are also within the range {0, 1, …, 254, 255} which means one need to map 256 values into 256 values.<br />
+In the Computer Science world this process is done using a <a href="https://en.wikipedia.org/wiki/Lookup_table">Look Up Table</a> (LUT).</p>
+
+<p>Over time some masks got their own naming according to the properties of the values assigned:</p>
+<ul>
+  <li>If it designates high output values to low input values, and low values to the rest it is called <em>Shadows Mask Generator</em>.<br />
+The output mask is called <em>Shadows Luminosity Mask</em> which reveals shadows and blocks everything else.</li>
+  <li>If it designates high output values to mid input values, and low values to the rest it is called <em>Midtones Mask Generator</em>.<br />
+The output mask is called <em>Midtones Luminosity Mask</em> which reveals midtones and blocks everything else.</li>
+  <li>If it designates high output values to high input values, and low values to the rest it is called <em>Highlights Mask Generator</em>.
+The output mask is called <em>Highlights Luminosity Mask</em> which reveals highlights and blocks everything elee.</li>
+</ul>
+
+<p>This is the mask generation transformation (Mapping), and basically this is all theory there is to know.</p>
+
+<h3 id="examples">Examples</h3>
+<p>Let’s do some stretching by simple example of 2 main building blocks of the Luminosity Mask world.<br />
+We will assume an 8 Bit Image, hence input and output pixel values are given by {0, 1, 2, …, 254, 255}.</p>
+
+<p>The most basic Mapping / LUT / Function (All are different names to the same idea) is the <em>identity</em> mapping:</p>
+
+\[f \left( x \right) = x\]
+
+<p>Namely, the output value – that is $ f \left( x \right) $ - is identical to the input value, which is $ x $.<br />
+This mask is called “Highlights Luminosity Mask”. Why? Because low input values (Shadows) are mapped to low output values (Dark pixels), and high input values (Highlights) are mapped to high output values (Light pixes).<br />
+The result is a mask where shadows are dark (Not selected) and highlights are light (Selected) – hence the name.</p>
+
+<p>Another basic mask is given by the negative (Inverse) of the Highlights Mask which is the “Shadows Luminosity Mask”:</p>
+
+\[f \left( x \right) = 255 - x\]
+
+<p>Here, to low input values (Shadows) correspond high output values, and to high input values correspond high output values (light pixes). The result is a mask where shadows are light (selected) and highlights are dark (not selected).</p>
+
+<p>Using those 2 building blocks one could generate many other masks targeting different Tonal Ranges (Something we will get to later).</p>
+
+<p><br />
+<img src="/news/images/LuminosityMask001/LuminosityMaskShowCaseAnimated.png" alt="Figure 003" title="Figure 003 - Luminosity Mask Generation" class="center-img" />
+<br /></p>
+
+<p>As can be seen above, the Midtones Mask is generated by scaled multiplication of the Highlights Mask and the Shadows Mask.
+This is one way to achieve this, not necessarily what’s used usually (We’ll talk about that).<br />
+Moreover, as can be seen by the Harmonic Function, one could do any mapping one wish.</p>
+
+<p><strong>Remark</strong>
+In practice, data is scaled into [0, 1] range as operations, such as multiplication, makes more sense in that domain. So the range {0, 1, 2, …, 254, 255} becomes {0 / 255, 1 / 255, 2 /255, …, 254 / 255, 255 / 255}. This is exactly what’s done in the above figure.</p>
+
+<h2 id="in-practice">In Practice</h2>
+<p>So now we know what a Luminosity Mask Generator is, and what it is doing.
+On the next step, let’s try to understand how this is done in Photoshop in most cases.<br />
+As discussed above, one need to create a LUT and there are two main approaches doing so - The Calculations Tool or the Curve Tool.
+One can apply each of those on Grayscale Image and the output is basically Luminosity Mask.</p>
+
+<h3 id="curve-tool">Curve Tool</h3>
+<p>The <a href="https://helpx.adobe.com/photoshop/using/curves-adjustment.html">Curve Tool</a> is a LUT table visualized by a Curve.<br />
+It practically lets the user draw the LUT using a flexible “Curve”.</p>
+
+<p><br />
+<img src="/news/images/LuminosityMask001/PhotoshopCurveTool.png" alt="Figure 004" title="Figure 004 - Photoshop Curve Tool" class="center-img" />
+<br /></p>
+
+<p>On the figure above, one could see Photoshop’s Curve tool.
+On its bottom, horizontally, you can see the input values. On the left, vertically, you can see the output value. You match between each value just by altering the curve according to your wish.<br />
+Basically school days function, that’s what it is, drawing a function.</p>
+
+<p><strong>Luminosity Mask Recipe by Curve Tool</strong></p>
+<ol>
+  <li>Create a Grayscale version of the image in a new layer (<a href="https://photoshoptrainingchannel.com/tips/loading-luminosity-keyboard-shortcut/">Extract Luminosity</a>, Select one of the channels, Desaturate the image, Use Channel Mixer, etc…).</li>
+  <li>Open the Curve Tool.</li>
+  <li>Draw the desired LUT.</li>
+  <li>Use the result as a mask -&gt; Luminosity Mask.</li>
+</ol>
+
+<h3 id="calculations-tool">Calculations Tool</h3>
+<p>Using <a href="https://helpx.adobe.com/photoshop/using/channel-calculations.html">Calculations Tool</a> one could apply simple Math operations on Layer / Channel / etc…<br />
+Namely we can combine Math operations (Add, Subtract, Multiply and even more esoteric functions) by repetitive use of the Calculation tool.<br />
+For instance, using the Calculation Tool we could easily generate the Midtones Mask from above by multiplying a layer and its inverse and scaling result by 4.
+So it gives us the option to use <code class="language-plaintext highlighter-rouge">+</code>, <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">*</code>, <code class="language-plaintext highlighter-rouge">/</code> on images, but not much more than that.</p>
+
+<h3 id="comparison---curve-tool-vs-calculations-tool">Comparison - Curve Tool vs. Calculations Tool</h3>
+<p>Let’s summarize the differences between those 2 approaches:
+<br />
+<br /></p>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Curve Tool</th>
+      <th>Calculation Tool</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Advantages</td>
+      <td>- No limits what so ever on the shape of the selection. <br /> - Complex mask can be achieved in operation. <br /></td>
+      <td>- Can be translated into exact Mathematical expression. <br /> - Smooth result and gets better as the mode (8, 16, 32 Bit) get higher. <br /></td>
+    </tr>
+    <tr>
+      <td>Disadvantages</td>
+      <td>- Photoshop Curves are quantized into 256 levels which makes them less smooth. <br /> - No parameterization (Unless scripted) hence hard to be accurate and consistent. <br /></td>
+      <td>- Limited to what can be done using the Blend Mode operations on the base Grayscale image. <br /> - Requires repetitive operations to get special selections (Slow). <br /></td>
+    </tr>
+    <tr>
+      <td>Remarks</td>
+      <td>Used by many Luminosity Mask panels out there, yet unless result can be achieved using Calculations, quality wise it is better use Calculations. <br /></td>
+      <td>Usually used for its quality yet limited either by speed or can get arbitrary selection. <br /></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+<br /></p>
+
+<h1 id="building-masks">Building Masks</h1>
+<p>In this part we will show how most of the masks out there are built using the Lego bricks we created.</p>
+
+<p><br />
+<img src="/news/images/LuminosityMask001/LuminosityMaskRecipesAnimated.png" alt="Figure 005" title="Figure 005 - Luminosity Masks Recipes" class="center-img" />
+<br /></p>
+
+<p>As one could see above, using Addition, Subtraction and Multiplication (Intersection), all operations available on Layers / Channels / Masks in Photoshop, one could easily generate all those “Classic” Luminosity Masks one could find in the wild (Wild world of the Luminosity Masks Panels).</p>
+
+<p>Those with “Sharp Eye” would pay attention to something strange - Midtones Mask 001 is all black, see the function below:</p>
+
+\[f \left( x \right) = 1 - x - ( 1 - x ) = 1 - 1 + x - x = 0\]
+
+<p>Yet in practice, in all products out there… It is not?! So what’s going on?<br />
+Clearly they all state that the Midtones Mask is created by subtracting the Highlights and Shadows masks from the all white mask.<br />
+So it is, by all means, should be all black mask while it is not.</p>
+
+<p>Well, what you see above is ideal Masks, while Photoshop can not generate them in this quality.<br />
+The current methods to create them usually use Photoshop’s steps which aren’t doing this exact Math.<br />
+We’ll talk more on those pitfalls and strange behaviour of classic Luminosity Masks (And their generation) in the next writing.</p>
+
+<h1 id="summary">Summary</h1>
+<p>Now we understood what Luminosity Masks really are, the actual operations and Math behind them.<br />
+We have shown the Luminosity Mask generation is no more than the most simple operation on grayscale image - Apply LUT / Pixel Wise Mapping.
+What we saw is that there 2 main approaches for Luminosity Masks in Photoshop. While one gives the most flexibility and efficiency (Curve Tool) it lacks with quality and the other which generates smooth masks (Calculation Tool) has speed issues when trying to generate complex masks and some miss calculations in the process.
+How can we solve those?</p>
+
+<p>Well, this is what <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Fixel Zone Selector</a> is all about.<br />
+In the <a href="https://fixelalgorithms.co/news/2018/11/luminosity-mask-002/index.html">next part</a> we’ll talk about <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Zone Selector</a> approach to Luminosity Masks.</p>
+
+<h2 id="image-credit">Image Credit</h2>
+<ul>
+  <li><a href="https://www.flickr.com/photos/magnetismus/8399258607/">Lighthouse Image</a> - Credit to <a href="https://www.flickr.com/people/magnetismus/">magnetismus</a>.</li>
+  <li><a href="https://www.freeimages.com/photo/schwaigsee-lake-1342788">Schwaigsee Lake</a> - Credit to <a href="https://www.freeimages.com/photographer/Alfi007-51075">Alfred Borchard</a>.</li>
+  <li><a href="https://www.flickr.com/photos/lightsamples/22552453147">Simple Living</a> - Credit to <a href="https://www.flickr.com/photos/lightsamples/">Malcolm Carlaw</a>.</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+<ul>
+  <li><a href="http://fotographee.com/tutorial-image-editing-luminosity-masks/">Luminosity Mask: The Complete Kickstarter’s Guide</a>.</li>
+  <li><a href="https://www.youtube.com/watch?v=xvjno4d8uJ8">Video - How to Generate the Classic Luminosity Masks Using Mask / Channel Operations (Add, Subtract, Intersect [Multiply])</a>.</li>
+  <li><a href="https://www.youtube.com/watch?v=43JbFIOckrM">Video - How to Generate the Classic Luminosity Masks Using Calculations (16 Bit Mode)</a>.</li>
+  <li><a href="https://www.youtube.com/watch?v=la-zWPwjuQw">Video - Selecting Using Luminosity Masks (Using Curve Tool)</a>.</li>
+  <li><a href="https://fixelalgorithms.co/news/2018/11/luminosity-mask-002/index.html">Luminosity Mask Done Right!</a> - The 2nd part of this blog post.</li>
+</ul>
+
+<!-- This is commented out -->
+
+<p>Key Words: <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Fixel Algorithms</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Fixel</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Fixel Zone Selector</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Luminosity Mask</a>,  <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Luminosity Masks</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Saturation Mask</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Saturation Masks</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Curves</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Levels</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Luminosity</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Photoshop</a>, <a href="/products/zoneselector/" title="Fixel Zone Selector 1 PS Product Page">Plug In</a>.</p>
+
+<!-- This is commented out -->
+:ET

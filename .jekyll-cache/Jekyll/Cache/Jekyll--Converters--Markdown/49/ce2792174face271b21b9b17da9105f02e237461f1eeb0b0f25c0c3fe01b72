@@ -1,0 +1,281 @@
+I"�]<p><img src="/news/images/FixelFFTWizard/FixelFFTWizardBlogPostIcon.png" alt="Fixel FFT Wizard Photoshop Plug In" title="Fixel FFT Wizard Photoshop Plug In" /></p>
+
+<h2 id="background">Background</h2>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Fourier_transform" title="Wikipedia - Fourier Transform">Fourier Transform</a> is one of the most powerful methods to analyze signals / data. It is widely used in the <a href="https://en.wikipedia.org/wiki/Digital_image_processing" title="Wikipedia - Digital Image Processing">Image Processing</a> world as on of the most used tool for any algorithms developer. It has a flavor specialized for <a href="https://en.wikipedia.org/wiki/Discrete_time_and_continuous_time">Discrete Signals</a> called <a href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform" title="Wikipedia - Discrete Fourier Transform">Discrete Fourier Transform</a> (DFT) which has a fast and efficient implementation called <a href="https://en.wikipedia.org/wiki/Fast_Fourier_transform" title="Wikipedia - Fast Fourier Transform">Fast Fourier Transform</a> (FFT).
+We won’t dive into the math and ideas behind the <a href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform" title="Wikipedia - Discrete Fourier Transform">DFT</a> but the basic idea is pretty simple.<br />
+For images the <a href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform" title="Wikipedia - Discrete Fourier Transform">DFT</a> means we can represent data either by values of each pixel in a spatial grid or have equivalent representation which is the energy of periodic 2D signal.<br />
+In <a href="https://en.wikipedia.org/wiki/Digital_image_processing" title="Wikipedia - Digital Image Processing">Digital Image Processing</a> there are operations easier to do in the Spatial representation (Image itself) and operations easier to do on the frequency domain.</p>
+
+<h2 id="applications">Applications</h2>
+
+<p>There are many applications for the DFT in Image Processing.<br />
+For instance, <a href="https://fstoppers.com/post-production/ultimate-guide-frequency-separation-technique-8699">Frequency Separation</a>, which is highly popular among Retouchers, can be easily analyzed (Implemented) using DFT.<br />
+Actually many filters (See for instance ) can (Or are) be implemented in the frequency domain which under some conditions is more efficient (Faster). For instance have a look at <a href="https://helpx.adobe.com/photoshop-elements/using/filters-1.html#custom_filters"><code class="language-plaintext highlighter-rouge">Custom Filter</code></a> in Adobe Photoshop.</p>
+
+<p><a href="https://affinity.serif.com/en-us/photo/">Affinity Photo</a> even use FFT for Denoising (See <a href="https://www.youtube.com/watch?v=6wfeMGwcF0c&amp;t=6s">FFT Denoise</a>, Though it is more periodic pattern suppression, see below).</p>
+
+<h3 id="texture--pattern-suppression">Texture / Pattern Suppression</h3>
+
+<p>One of the task which is easier to do in the Frequency Domain is Texture / Pattern Suppression.<br />
+Many users use to retouch scanned images or images with periodic pattern they want to remove.</p>
+
+<p><br />
+<img src="/news/images/FixelFFTWizard/FFTFilterRemovePattern.gif" alt="" class="center-img" />
+<br /></p>
+
+<p>We won’t display full use case of that but you can read and watch many examples in the following resources:</p>
+
+<ul>
+  <li><a href="http://www.tipsquirrel.com/use-fft-to-reduce-texture/">Use FFT To Reduce Texture</a><br />
+Blog post about DFT / FFT and how to use that to remove texture. Very clear and the work flow similar to ours.</li>
+  <li><a href="https://www.youtube.com/watch?v=vb4XFNC4MvU">Youtube - Photoshop FFT Tutorial</a><br />
+Simple tutorial and hands on on using FFT Plug In to retouch scanned images.</li>
+  <li><a href="https://www.youtube.com/watch?v=3jeOsgM5NMs">Youtube - FFT Photoshop Action</a><br />
+A continuation of the previous video about automating the work flow of dealing with scanned images and texture.</li>
+  <li><a href="https://www.youtube.com/watch?v=SUqsm9_iCbQ">Youtube - Using FFT Filter for Photoshop to Remove Old Paper Texture</a><br />
+Simple tutorial on dealing with a scanned image with Old Paper Texture.</li>
+  <li><a href="https://www.youtube.com/watch?v=yyox358zIRw&amp;t=232s">Youtube - Using an FFT Filter to Remove Repeating Patterns</a><br />
+Tutorial from Retouch Pro forum user.</li>
+  <li><a href="https://www.youtube.com/watch?v=FDM4lEw65j0">Youtube - Pattern Suppression in Photoshop</a><br />
+Full tutorial, including installation, of FFT Plug In and use case.</li>
+  <li><a href="http://www.skeller.ch/ps/fft_action.php">FFT Filter With Photoshop Action</a><br />
+Blog post about utilizing FFT for reduction of pattern noise.</li>
+  <li><a href="https://www.dpreview.com/forums/post/16172756">DPReview Forum - FFT Filter and Photoshop Action (Tutorial)</a><br />
+A tutorial posted on DPReview Retouching forum about utilizing FFT Plug In.</li>
+  <li><a href="https://www.lynda.com/Photoshop-tutorials/Using-FFT-plugin-remove-paper-texture/373087/385421-4.html">Lynda - Using an FFT plugin to remove paper texture</a><br />
+Lynda tutorial about utilizing FFT. Behind a <a href="https://en.wikipedia.org/wiki/Paywall">Paywall</a>.</li>
+</ul>
+
+<p>All of them has the same basic idea:</p>
+
+<ol>
+  <li>Transform the Image into Frequency Domain<br />
+Apply FFT Filter on an image in Photoshop. The filter will actually be applied on the Luminosity Data of the image.<br />
+The Plug In will yield 3 Channels image where 2 channels are dedicated to the Amplitude and Phase of the Frequency Domain.</li>
+  <li>Adjust the Amplitude of the Fourier Transform<br />
+The user will adjust (<strong>Only</strong>) the Amplitude. Usually by removing energy which fits the unwanted pattern. This is basically applying manual Filtering of the image.</li>
+  <li>Transform the Adjusted Frequency Data into Luminosity Image<br />
+Once the Amplitude is adjusted the use will apply the Inverse Transform (IFFT) which will result in Luminosity (Grayscale) image with the removed data according to the user applied filtering.</li>
+  <li>Merge the Adjusted Luminosity Image with the Color Image of the Original Image<br />
+Now, the last step, is merging the Luminosity data with the color data of the original image. Usually by changing the blending mode to <em>Luminosity</em>.</li>
+</ol>
+
+<h2 id="fixel-fft-wizard-photoshop-plug-in">Fixel FFT Wizard Photoshop Plug In</h2>
+
+<p>Adobe Photoshop, to our knowledge, has never offered DFT Filter integrated into Photoshop. Hence all solutions were based on Plug In’s created by 3rd party.
+In some of the above resources you’ll find some of those 3rd party solutions (Plug In based) yet usually they are either not working on platforms, not updated or supported.</p>
+
+<p>Yet there is demand for such solutions:</p>
+
+<ul>
+  <li><a href="https://forums.adobe.com/thread/2198154">Adobe Photoshop Forum - Are There Any FFT (Fast Fourier Transform) Plug In’s for Photoshop CC</a>?</li>
+  <li><a href="https://feedback.photoshop.com/photoshop_family/topics/fft_based_pattern_remover_as_a_filter">Adobe Photoshop Feedback Forum - Photoshop: FFT Based Pattern Remover (Filter)</a>.</li>
+  <li><a href="https://www.reddit.com/r/photoshop/comments/7npjwk/fftfilter/">Reddit - FFT Filter</a>.</li>
+  <li><a href="https://www.dpreview.com/forums/post/42187590">DPReview Forum - FFT (Fourier Filters) with Photoshop - For Larger Images</a>.</li>
+  <li><a href="http://forum.luminous-landscape.com/index.php?topic=107038.0">Luminous Landscape - Free Mac Photoshop FFT / IFFT 64-bit Plugins for CC 2015 (OS 10.9+)</a>.</li>
+  <li><a href="http://djjoofa.com/download/fft_mac_ps_cc_2015">macOS Photoshop CS5, CS6, CC, CC 2015﻿ FFT / IFFT Filters (64 BIT)</a>.</li>
+  <li><a href="https://www.photoshopgurus.com/forum/threads/fft-plugin-for-macs-by-dj-joofa-being-made-available.56261/">Photoshop Gurus Community Forum - FFT Plugin for Macs by Dj Joofa Being Made Available</a>.</li>
+  <li><a href="http://www.operationphotorescue.org/forum/index.php?topic=3108.0">Operation Photo Rescue’s Online Community - FFT for 64bit Photoshop</a>.</li>
+  <li><a href="https://www.retouchpro.com/forum/tools/software/32395">RetouchPro - Here is FFT for 64 bit Photoshop</a>.</li>
+  <li><a href="https://www.retouchpro.com/forum/tools/software/38446">RetouchPro - Developing Mac Photoshop 64 bit FFT / IFFT Plug In’s</a>.</li>
+</ul>
+
+<p>So we thought we could assist the community with a product which will be supported as a commercial product but <strong>will be offered for free</strong> (<a href="https://en.wikipedia.org/wiki/Pay_what_you_want"><em>Pay as You Want</em></a>).</p>
+
+<h3 id="download">Download</h3>
+
+<p>You may <a href="https://fixelalgorithms.co/products/fftwizard/" title="Fixel FFT Wizard Product Page">download Fixel FFT Wizard from our web store for free</a> (Pay as You Want). The user will be asked for email address in order to let him know about updates.<br />
+If the user only download it as a one time one could user Temporary Email address.</p>
+
+<h3 id="installation">Installation</h3>
+
+<p>Once you <a href="https://fixelalgorithms.co/products/fftwizard/" title="Fixel FFT Wizard Product Page">download Fixel FFT Wizard</a> you will have a ZIP file named <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard majorVersion.minorVersion.buildNumber</code> (For examples <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1.0.000</code>).<br />
+Inside this ZIP file you’ll find 5 files:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Fixel FFT Wizard &lt;majorVersion&gt; PS.8bf</code> (For example <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1 PS.8bf</code>) - Adobe Photoshop Plug In for Windows.</li>
+  <li><code class="language-plaintext highlighter-rouge">Fixel FFT Wizard &lt;majorVersion&gt; PS.plugin</code> (For example <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1 PS.plugin</code>) - Adobe Photoshop Plug In for macOS.</li>
+  <li><code class="language-plaintext highlighter-rouge">Fixel FFT Wizard &lt;majorVersion&gt; UI.jsx</code> (For example <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1 UI.jsx</code>) - Adobe Photoshop Extend Script File (Used of the UI).</li>
+  <li><code class="language-plaintext highlighter-rouge">Fixel FFT Wizard.url</code> - Internet Link for This Page / Product Page.</li>
+  <li><code class="language-plaintext highlighter-rouge">Installation Guide.txt</code> - Text File with Installation Guide.</li>
+</ul>
+
+<h4 id="macos-installation">macOS Installation</h4>
+
+<ul>
+  <li>Make sure Photoshop is closed.</li>
+  <li>Go to the following path <code class="language-plaintext highlighter-rouge">Hard Drive/Applications/&lt;Photoshop Version&gt;/Presets/Scripts</code>.</li>
+  <li>Create a Folder named <code class="language-plaintext highlighter-rouge">Fixel Algorithms</code>.<br />
+You may be required for Administrator Rights to do so.</li>
+  <li>Go to the path created above - <code class="language-plaintext highlighter-rouge">Hard Drive/Applications/&lt;Photoshop Version&gt;/Presets/Scripts/Fixel Algorithms</code>.<br />
+For instance, in case <code class="language-plaintext highlighter-rouge">&lt;Photoshop Version&gt;</code> is <code class="language-plaintext highlighter-rouge">Photoshop CC 2018</code> the path becomes <code class="language-plaintext highlighter-rouge">Hard Drive/Applications/Adobe Photoshop CC 2018/Presets/Scripts/Fixel Algorithms</code></li>
+  <li>Copy the file <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1 UI.jsx</code> into the folder above.</li>
+  <li>Go to the following path <code class="language-plaintext highlighter-rouge">Hard Drive/Applications/&lt;Photoshop Version&gt;/Plug-ins</code>.</li>
+  <li>Create a Folder named <code class="language-plaintext highlighter-rouge">Fixel Algorithms</code>.<br />
+You may be required for Administrator Rights to do so.</li>
+  <li>Go to the path created above <code class="language-plaintext highlighter-rouge">Hard Drive/Applications/&lt;Photoshop Version&gt;/Plug-ins/Fixel Algorithms</code>.<br />
+For instance, in case <code class="language-plaintext highlighter-rouge">&lt;Photoshop Version&gt;</code> is <code class="language-plaintext highlighter-rouge">Photoshop CC 2018</code> the path becomes <code class="language-plaintext highlighter-rouge">Hard Drive/Applications/Adobe Photoshop CC 2018/Plug-ins/Fixel Algorithms</code>.</li>
+  <li>Copy the file <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1 PS.plugin</code> into the folder above.</li>
+  <li>Launch Photoshop. Find <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1 UI</code> at the bottom of the Filter menu.</li>
+</ul>
+
+<h4 id="windows-installation">Windows Installation</h4>
+
+<ul>
+  <li>Make sure Photoshop is closed.</li>
+  <li>Go to the following path <code class="language-plaintext highlighter-rouge">C:\Program Files\Adobe\&lt;Photoshop Version&gt;\Presets\Scripts</code>.</li>
+  <li>Create a Folder named <code class="language-plaintext highlighter-rouge">Fixel Algorithms</code>.<br />
+You may be required for Administrator Rights to do so.</li>
+  <li>Go to the path created above - <code class="language-plaintext highlighter-rouge">C:\Program Files\Adobe\&lt;Photoshop Version&gt;\Presets\Scripts\Fixel Algorithms</code>.<br />
+For instance, in case <code class="language-plaintext highlighter-rouge">&lt;Photoshop Version&gt;</code> is <code class="language-plaintext highlighter-rouge">Photoshop CC 2018</code> the path becomes <code class="language-plaintext highlighter-rouge">C:\Program Files\Adobe\Adobe Photoshop CC 2018\Presets\Scripts\Fixel Algorithms</code></li>
+  <li>Copy the file <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1 UI.jsx</code> into the folder above.</li>
+  <li>Go to the following path <code class="language-plaintext highlighter-rouge">C:\Program Files\Adobe\&lt;Photoshop Version&gt;\Plug-ins</code>.</li>
+  <li>Create a Folder named <code class="language-plaintext highlighter-rouge">Fixel Algorithms</code>.<br />
+You may be required for Administrator Rights to do so.</li>
+  <li>Go to the path created above <code class="language-plaintext highlighter-rouge">C:\Program Files\Adobe\&lt;Photoshop Version&gt;\Plug-ins\Fixel Algorithms</code>.<br />
+For instance, in case <code class="language-plaintext highlighter-rouge">&lt;Photoshop Version&gt;</code> is <code class="language-plaintext highlighter-rouge">Photoshop CC 2018</code> the path becomes <code class="language-plaintext highlighter-rouge">C:\Program Files\Adobe\Adobe Photoshop CC 2018\Plug-ins\Fixel Algorithms</code>.</li>
+  <li>Copy the file <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1 PS.8bf</code> into the folder above.</li>
+  <li>Launch Photoshop. Find <code class="language-plaintext highlighter-rouge">Fixel FFT Wizard 1 UI</code> at the bottom of the Filter menu.</li>
+</ul>
+
+<h3 id="use">Use</h3>
+
+<p>The use of the filter is pretty simple.<br />
+In order to avoid quantization errors the user should use 16 Bit / 32 Bit Mode in Photoshop.<br />
+The Plug In is actionable. Feel free to build actions around it to incorporate it into your work flow.</p>
+
+<h4 id="forward-fft">Forward FFT</h4>
+
+<p><br />
+<img src="/news/images/FixelFFTWizard/FixelFftWizardForwardAnimation.png" alt="" class="center-img" width="95%" height="95%" />
+<br /></p>
+
+<p>In order to apply the Forward FFT do as following:</p>
+<ol>
+  <li>Make sure the selected Layer in the Layer panel it a bitmap layer.</li>
+  <li>Launch the UI by <code class="language-plaintext highlighter-rouge">Filter -&gt; Fixel FFT Wizard 1 UI</code> (Should be at the bottom of the Filter Menu).</li>
+  <li>On the UI Click <code class="language-plaintext highlighter-rouge">Forward FFT</code>.<br />
+Pay attention that if you’re in 8 Bit Mode a warning window will appear (Select <code class="language-plaintext highlighter-rouge">Yes</code> to apply the filter in 8 Bit Mode).</li>
+</ol>
+
+<p>The Filter will create a new layer called <code class="language-plaintext highlighter-rouge">Forward FFT (temp)</code> with its Red Channel selected as active channel.<br />
+The channels of the <code class="language-plaintext highlighter-rouge">Forward FFT (temp)</code> are the Amplitude (Red Channel) and Phase (Green Channel) of the image.<br />
+The Blue Channel consists the Luminosity Channel of the input image with some encoding.</p>
+
+<h4 id="adjust-amplitude">Adjust Amplitude</h4>
+
+<p>By default the <code class="language-plaintext highlighter-rouge">Forward FFT (temp)</code> will come with Amplitude Channel (Red Channel) selected.<br />
+Hence in order to adjust the amplitude just draw over the layer with any tool you find appropriate.<br />
+Make sure you don’t alter any other channel but the Amplitude Channel (Red Channel).<br />
+Otherwise the Backward FFT won’t reconstruct the image correctly.</p>
+
+<p>Don’t alter the Image Mode during the use of the filter.</p>
+
+<h4 id="backward-fft">Backward FFT</h4>
+
+<p><br />
+<img src="/news/images/FixelFFTWizard/FixelFftWizardBackwardAnimation.png" alt="" class="center-img" width="95%" height="95%" />
+<br /></p>
+
+<p>The Backward FFT filter will reconstruct the Luminosity Channel based on the adjusted Amplitude Channel.<br />
+In order to apply the Forward FFT do as following:</p>
+
+<ol>
+  <li>Activate the <code class="language-plaintext highlighter-rouge">Forward FFT (temp)</code> layer in Layer Panel.</li>
+  <li>Launch the UI by <code class="language-plaintext highlighter-rouge">Filter -&gt; Fixel FFT Wizard 1 UI</code> (Should be at the bottom of the Filter Menu).</li>
+  <li>On the UI Click <code class="language-plaintext highlighter-rouge">Backward FFT</code>.<br />
+The Plug In will reconstruct the Luminosity Channel and set the Blending Mode to <code class="language-plaintext highlighter-rouge">Luminosity</code>.</li>
+</ol>
+
+<h3 id="system-requirements">System Requirements</h3>
+
+<h4 id="operating-system">Operating System</h4>
+
+<ul>
+  <li>Windows
+Windows 7 x64 (Service Pack 1 Installed), Windows 10 x64.</li>
+  <li>macOS
+macOS 10.10 and above.</li>
+</ul>
+
+<p>We suggest the Operating System to be updated to its latest build.</p>
+
+<h4 id="host-program">Host Program</h4>
+
+<ul>
+  <li>Adobe Photoshop 64 Bit
+Photoshop CS6 64 Bit. Adobe Photoshop CC 2015 64 Bit, Adobe Photoshop CC 2017 64 Bit, Adobe Photoshop CC 2018 64 Bit</li>
+</ul>
+
+<p>It should work on Adobe Photoshop CS5 64 Bit and all CC 64 Bit versions but we never validated it.</p>
+
+<h4 id="hardware">Hardware</h4>
+
+<ul>
+  <li>x64 Bit CPU (Intel or AMD) with SSE4 Support.<br />
+Basically any modern CPU created by Intel or AMD since ~2010.</li>
+</ul>
+
+<h2 id="summary">Summary</h2>
+
+<p>The reason we created Fixel FFT Wizard was reading about the need of people for FFT Plug In in Photoshop both for Windows and macOS.<br />
+Moreover, usually the use case were old photos with sentimental significance.<br />
+So we felt we could assist and created Fixel FFT Wizard to support those people who mostly use this for keep their memories with them.<br />
+Taking all these under consideration we decided to offer Fixel FFT Wizard for free for any user without any constraint on the use.</p>
+
+<p>At the moment Fixel FFT Wizard is in Public Release Candidate state and once we finalize it we’ll put it behind <a href="https://en.wikipedia.org/wiki/Pay_what_you_want"><em>Pay as You Want</em></a> offer with free option always available.<br />
+The download requires Email Address so we could notify you about updates of Fixel FFT Wizard.</p>
+
+<p>We hope you enjoy it and find it useful in your work flow.<br />
+If you do, we’ll be happy if you share your cases with us.</p>
+
+<!--
+<figure>
+![test](https://i.imgur.com/mcnGYL4.png){:class="center-img"}
+<figcaption>
+Try this...
+</figcaption>
+</figure>
+-->
+
+<!--
+<figure>
+<img src="https://i.imgur.com/mcnGYL4.png" alt="Italian Trulli" class="center-img">
+<figcaption>
+Try this...
+</figcaption>
+</figure>
+-->
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="http://www.tipsquirrel.com/use-fft-to-reduce-texture/">Use FFT To Reduce Texture</a>.</li>
+  <li><a href="Photoshop FFT Tutorial">Youtube - Photoshop FFT Tutorial</a>.</li>
+  <li><a href="https://www.youtube.com/watch?v=SUqsm9_iCbQ">Youtube - Using FFT Filter for Photoshop to Remove Old Paper Texture</a>.</li>
+  <li><a href="https://www.youtube.com/watch?v=3jeOsgM5NMs">Youtube - FFT Photoshop Action</a>.</li>
+  <li><a href="https://www.youtube.com/watch?v=yyox358zIRw&amp;t=232s">Youtube - Using an FFT Filter to Remove Repeating Patterns</a>.</li>
+  <li><a href="https://www.youtube.com/watch?v=FDM4lEw65j0">Youtube - Pattern Suppression in Photoshop</a>.</li>
+  <li><a href="http://www.skeller.ch/ps/fft_action.php">FFT Filter With Photoshop Action</a>.</li>
+  <li><a href="https://www.dpreview.com/forums/post/16172756">DPReview Forum - FFT Filter and Photoshop Action (Tutorial)</a>.</li>
+  <li><a href="https://forums.adobe.com/thread/2198154">Adobe Photoshop Forum - Are There Any FFT (Fast Fourier Transform) Plug In’s for Photoshop CC</a>?</li>
+  <li><a href="https://feedback.photoshop.com/photoshop_family/topics/fft_based_pattern_remover_as_a_filter">Adobe Photoshop Feedback Forum - Photoshop: FFT Based Pattern Remover (Filter)</a>.</li>
+  <li><a href="https://www.reddit.com/r/photoshop/comments/7npjwk/fftfilter/">Reddit - FFT Filter</a>.</li>
+  <li><a href="https://www.dpreview.com/forums/post/42187590">DPReview Forum - FFT (Fourier Filters) with Photoshop - For Larger Images</a>.</li>
+  <li><a href="http://forum.luminous-landscape.com/index.php?topic=107038.0">Luminous Landscape - Free Mac Photoshop FFT / IFFT 64-bit Plugins for CC 2015 (OS 10.9+)</a>.</li>
+  <li><a href="http://djjoofa.com/download/fft_mac_ps_cc_2015">macOS Photoshop CS5, CS6, CC, CC 2015﻿ FFT / IFFT Filters (64 BIT)</a>.</li>
+  <li><a href="https://www.photoshopgurus.com/forum/threads/fft-plugin-for-macs-by-dj-joofa-being-made-available.56261/">Photoshop Gurus Community Forum - FFT Plugin for Macs by Dj Joofa Being Made Available</a>.</li>
+  <li><a href="http://www.operationphotorescue.org/forum/index.php?topic=3108.0">Operation Photo Rescue’s Online Community - FFT for 64bit Photoshop</a>.</li>
+  <li><a href="https://www.retouchpro.com/forum/tools/software/32395">RetouchPro - Here is FFT for 64 bit Photoshop</a>.</li>
+  <li><a href="https://www.retouchpro.com/forum/tools/software/38446">RetouchPro - Developing Mac Photoshop 64 bit FFT / IFFT Plug In’s</a>.</li>
+  <li><a href="https://www.lynda.com/Photoshop-tutorials/Using-FFT-plugin-remove-paper-texture/373087/385421-4.html">Lynda - Using an FFT Plug In to Remove Paper Texture</a><br />
+Behind a <a href="https://en.wikipedia.org/wiki/Paywall">Paywall</a>.</li>
+</ul>
+
+<!-- This is commented out -->
+
+<p>Key Words: <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Fixel Algorithms</a>, <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Fixel</a>, <a href="https://fixelalgorithms.co/products/fftwizard/" title="Fixel FFT Wizard">Fixel FFT Wizard</a>, <a href="https://fixelalgorithms.co/products/fftwizard/" title="Fixel FFT Wizard">FFT</a>, <a href="https://fixelalgorithms.co/products/fftwizard/" title="Fixel FFT Wizard">DFT</a>, <a href="https://fixelalgorithms.co/products/fftwizard/" title="Fixel FFT Wizard">FFT Filter</a>, <a href="https://fixelalgorithms.co/products/fftwizard/" title="Fixel FFT Wizard">FFT Plug In</a>, <a href="https://fixelalgorithms.co/products/fftwizard/" title="Fixel FFT Wizard">DFT Filter</a>, <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Photoshop</a>, <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Plug In</a>, <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Photoshop Plug In</a>.</p>
+
+<!-- This is commented out -->
+:ET

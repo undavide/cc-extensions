@@ -1,0 +1,246 @@
+I"�^<p><img src="/news/images/FixelRecolor1/Fixel Recolor Icon.png" alt="Fixel Recolor Photoshop Plug In" title="Fixel Recolor Icon" /></p>
+
+<h1 id="fixel-recolor-photoshop-plug-in">Fixel Recolor Photoshop Plug In</h1>
+
+<h2 id="background">Background</h2>
+
+<p>Engineering is all about defining a problem, supposedly interesting and solvable, and solve it.<br />
+At <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Fixel</a>, each one of the team is also a Photography Enthusiastic.<br />
+Hence each of has encountered the following situation - Looking at great image and thinking, “<em>How can I recreates this colors in my image?</em>”.<br />
+Since we’re also engineers, it seemed to us as a legitimate problem to define and try to solve.</p>
+
+<p>More than that, it is solvable and we call our solution <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a>.</p>
+
+<h2 id="color-grading-color-palette--style-transfer">Color Grading, Color Palette &amp; Style Transfer</h2>
+
+<p>Color Grading is the “signature” step of a Retoucher / Photgrapher / Designer working on his images. Usually it is one of the last steps to execute which gives the image a distinct look as its creator desired.<br />
+Color Grading has become a hot topic lately and like painters each Retoucher / Photgrapher / Designer has his own Color Palette (See <a href="https://fstoppers.com/education/making-color-grading-easy-using-color-palettes-109061">Making Color Grading Easy Using Color Palettes</a>) and “Brush” to do it.<br />
+Though it has become very popular to talk about color grading and color palettes, create tutorials, show before and after, etc…<br />
+The color grading concept was always there as one could see in <a href="https://twitter.com/CINEMAPALETTES" title="Cinema Palette">CINEMA PALETTES</a> which shows the Color Palettes used in classic cinema movies.
+The point is no one created a tool for creating color palettes from images which inspire us, “Borrow” from a friend.</p>
+
+<p>So what is Color Grading?<br />
+Basically it means remapping of colors.<br />
+Where the target colors are composed from the Color Palette selected by the Retoucher / Photographer / Designer.
+There are many way to do so (The most general mapping tool would be curves) using tools in Photoshop.<br />
+Yet the most classic one is using <a href="https://helpx.adobe.com/il_en/photoshop/using/applying-special-color-effects-images.html#apply_a_gradient_map_to_an_image">Gradient Map</a>.<br />
+The Gradient Map of remaps image colors based on their Luminosity Values.</p>
+
+<p><img src="/news/images/FixelRecolor1/PhotoshopGradientMap.png" alt="" title="Figure 001 - Photoshop Gradient Map Tool &amp; Color Palette" class="center-img" /></p>
+
+<p>As can be seen in Figure 001 the Grayscale Gradient was recolored by the Gradient Map (Built with certain color palette) according to the brightness of the gray color.</p>
+
+<p>Usually the Gradient Map Adjustment Layer is set to <code class="language-plaintext highlighter-rouge">Soft Light</code> or <code class="language-plaintext highlighter-rouge">Overlay</code> Blend Mode as one doesn’t want full replacement of the colors but just a subtle effect of color mapping.<br />
+The colors which compose the Gradient Map are the Color Palette and are chosen according to the atmosphere one wants to create.</p>
+
+<p>How do we create a good color palette?<br />
+Well, some of us just has it, some used color palettes form others and some just guess.<br />
+We had 2 things to say about it:</p>
+
+<ol>
+  <li>There are plenty of examples out there which are great example of a great Color Palette.</li>
+  <li>There are Machine Learning based algorithms to extract Color Palette from a good example.</li>
+</ol>
+
+<p>Namely, given a good example, can we transfer its Color Style (Style Transfer) to our target image?<br />
+Moreover, can we use it to create a Color Palette and use it when we want?</p>
+
+<p>Indeed we can. All needed is to adapt those algorithms and fine tune them into the problem we started with.<br />
+Analyze a Reference Image, Extract a Color Palette from it, Apply the Color Palette in the Color Grading process of the Target Image.<br />
+What does it mean? Transfer Color Palette from any image which inspire you to any image you would like!</p>
+
+<h2 id="fixel-recolor">Fixel Recolor</h2>
+
+<p>So, ~4 years ago we started working on this problem - How to Extract a Color Palette from Reference Image and apply it on a Target Image.<br />
+We wanted a fully Automatic Process based on Machine Learning algorithms.<br />
+Some can do it manually, as seen in <a href="https://twitter.com/CINEMAPALETTES" title="Cinema Palette">CINEMA PALETTES</a>, but we wanted to be able to do it in a modern manner with smooth workflow within Photoshop.</p>
+
+<p>Basic concept in <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a> is the Reference Image and the Target Image:</p>
+<ul>
+  <li>Reference Image - The image to be analyzed in order to extract its Color Palette.</li>
+  <li>Target Image - The image we would like to apply a Color Grading using a Color Palette.</li>
+</ul>
+
+<h3 id="under-the-hood---analyze-extract-use-color-grading--color-mapping--style-transfer">Under the Hood - Analyze, Extract, Use (Color Grading / Color Mapping / Style Transfer)</h3>
+
+<p>In order to explain what <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a> does, let us use a reference image:</p>
+
+<p><img src="/news/images/FixelRecolor1/Fixel Recolor Blog - Reference Image.png" alt="" title="Figure 002 - Reference Image" class="center-img" /></p>
+
+<p>In order to understand how the Color Palette Extraction phase work one needs to have a look how is the algorithm see it.<br />
+The algorithm sees each pixel as a point in 3D Space of RGB Colors.</p>
+
+<p><img src="/news/images/FixelRecolor1/ReferenceImage3DColorsCube.png" alt="" title="Figure 003 - Reference Image 3D Colors Cube" class="center-img" /></p>
+
+<p>As can be seen in Figure 003, each pixel of this 400 x 400 (160,000 Pixels) in the reference image is represented as point.<br />
+Now, what’s the algorithm tries to do, using Machine Learning algorithm, it understand the “Center of Mass” of different groups of colors where the <em>hint</em> of how many groups there are is given by the user.<br />
+In the reference image it is quite easy to think about it (Well, that’s the reason it was chosen) and figure it out.<br />
+The algorithm tries to solve the same problem even in cases it is less intuitive to do but the idea is the same.</p>
+
+<p>By default, the color palette is formed with the colors sorted by their Luminosity Value from darkest to brightest.</p>
+
+<h3 id="user-interface-ui">User Interface (UI)</h3>
+
+<p>The algorithm (Plug In) gets the number color samples in the Color Palette to extract from the user.<br />
+This can be done by a very simple Slider.<br />
+But the real job of the UI is to support many workflows of working with the Color Palette.</p>
+
+<p><img src="/news/images/FixelRecolor1/Fixel Recolor UI Product Page.png" alt="" title="Figure 004 - Fixel Recolor User Interface (UI)" class="center-img" /></p>
+
+<p>In order to do so the UI has basically 3 main sections:</p>
+
+<ul>
+  <li>
+    <p>Plug In Interaction Section<br />
+ 	In this section the user configures the parameter of the Plug In in its Color Palette Extraction task. There are 3 main UI elements in this section:</p>
+
+    <ul>
+      <li>Number of Colors Samples - Sets the number of colors in the color Palette to be extracted.</li>
+      <li>Source (<code class="language-plaintext highlighter-rouge">Mode</code>) - The user can set the <code class="language-plaintext highlighter-rouge">Mode</code> (Source) which can be either the current Photoshop Document (Stamp Visible) or a File.</li>
+      <li>Analyze - Runs the Plug In as configured. If <code class="language-plaintext highlighter-rouge">File</code> was chosen as source, the File Picker UI Dialog will be opened to chose the file fo analysis.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Current Color Palette Section<br />
+ 	In this section the last extracted Color Palette is displayed (On first run it will show a Default Color Palette). The user can interact with it in 2 manners:</p>
+
+    <ul>
+      <li>
+        <p>Palette Context Menu (3 Dots on the right) - The menu of the Current Palette allows the user do the following:</p>
+
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">Apply Color Grading</code> - Create a <code class="language-plaintext highlighter-rouge">Gradient Map Adjustment Layer</code> to color grade the image according to the Color Palette colors.</li>
+          <li><code class="language-plaintext highlighter-rouge">Shift Colors</code> - Randomize each color swatch in the Color Palette using a subtle shift of the color in RGB Space. User can use that to create a variation of the Color Palette (Though a subtle variation).</li>
+          <li><code class="language-plaintext highlighter-rouge">Add All to Swatches</code> - Saves all colors from the Color Palette to Photoshop’s Color Swatches.</li>
+          <li><code class="language-plaintext highlighter-rouge">Black / White Protection</code> - On / Off button which enables or disables the addition of Black &amp; White at the edges of the Gradient Map during the Color Grading phase. This can assist keeping more natural Blacks / Whites in the target image.</li>
+          <li><code class="language-plaintext highlighter-rouge">Save as Preset</code> - Save the Color Palette as a preset. the user will have a Text Box to chose the preset name.</li>
+        </ul>
+      </li>
+      <li>
+        <p>Color Swatches Level - The user can interact with each color swatch by itself. The user may use Drag &amp; Drop to reorder colors and even move colors between Color Palettes (Preset / Current). The The user can also <code class="language-plaintext highlighter-rouge">Right Click</code> it to open a Context Menu with the following options:</p>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">Edit Color</code> - Opens an OS Native Color Picker Dialog Box fr the user to edit the color of the swatch.</li>
+          <li><code class="language-plaintext highlighter-rouge">Shift Color</code> - Adds a random subtle shift to the color.</li>
+          <li><code class="language-plaintext highlighter-rouge">Add to Swatches</code> - Adds the color to Photoshop’s Color Swatches.</li>
+          <li><code class="language-plaintext highlighter-rouge">Duplicate Color</code> - Duplicates the color within the current Color Palette. Useful in cases the user wants to add his own color within the palette.</li>
+          <li><code class="language-plaintext highlighter-rouge">Delete Color</code> - Removes the color form the Color Palette.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Preset (Color Palettes) Section<br />
+ 	In this section the user can do everything he can do with the <code class="language-plaintext highlighter-rouge">Current Palette</code> with the additional options of duplicating the preset and renaming it. This is useful in cases the user want to create numerous variations of a color palette or Mix &amp; Match between different color palettes. Of course the user can also suer the Drag &amp; Drop feature for each color swatch within a color palette or between color palettes.</p>
+  </li>
+</ul>
+
+<p>There is also the lower section which has the <code class="language-plaintext highlighter-rouge">Settings Menu</code>, <code class="language-plaintext highlighter-rouge">About Menu</code> (Version of the Plug In) and <code class="language-plaintext highlighter-rouge">Product Page</code> link.</p>
+
+<p>As can be seen we tried to make the UI fully interactive. Each element can be altered and played with in order to drive creativity and freedom of choice. Just play with it, there are endless options to extract and interact with color palettes.</p>
+
+<h2 id="tips--tricks">Tips &amp; Tricks</h2>
+
+<h3 id="number-of-samples">Number of Samples</h3>
+
+<p>The first instinct is to chose the highest number. we are all sold by higher and higher values.<br />
+Yet a good rule of thumb before setting the number of Color Samples to extract (JUsing Image Analysis) into the Color Palette would be asking yourself - <em>If I had painted this image, how many different colors, which I know their names, would have I used?</em>.<br />
+The emphasize here is on <em>colors I know their name</em>. This simple trick will get you much better results using <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a>.</p>
+
+<h3 id="grab-from-the-internet---windows">Grab from the Internet - Windows</h3>
+
+<p>There is a nice feature added into <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a> once it is used in Windows. Actually it is Windows’ feature but still it is nice to know about.<br />
+When the user sets the Mode (Source) to <code class="language-plaintext highlighter-rouge">File</code> and hit <code class="language-plaintext highlighter-rouge">Analyze</code> a File Picker Dialog is opened. This dialog window is the native File Picker of the operating system.<br />
+Nice feature of the File Picker in Windows is being able to grab files from the Internet - HTTP Address.<br />
+So let us say you like an image on the Internet and you want to use it as the Reference Image then:</p>
+
+<ol>
+  <li>Copy the HTTP address of the image.<br />
+For instance, use the image of the <a href="https://en.wikipedia.org/wiki/Eiffel_Tower">Eiffel Tower</a> from Wikipedia - <code class="language-plaintext highlighter-rouge">https://upload.wikimedia.org/wikipedia/commons/8/85/Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg</code>.</li>
+  <li>Select the number of Color Samples to analyze in <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a>.</li>
+  <li>Configure <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a> to use <code class="language-plaintext highlighter-rouge">File</code> as source.</li>
+  <li>Hit the <code class="language-plaintext highlighter-rouge">Analyze</code> button and paste the HTTP address in the File Picker address.</li>
+</ol>
+
+<p>Once you do that the output Color Palette would be the result of the analysis of the image from the Internet.<br />
+It doesn’t work on macOS as the File Picker in macOS doesn’t support inserting HTTP addresses.</p>
+
+<h3 id="editing-and-shuffling-palettes--colors">Editing and Shuffling Palettes / Colors</h3>
+
+<p>We worked hard on the UI. Our motto was - Interactive Creative UI.<br />
+It means that any the user can interact with any element of the UI - Palettes and Color Swatches.<br />
+In our test group some (Minority) people missed some capabilities of the UI - Editing / Shuffling Palettes and Color Swatches.<br />
+So let us notify you that the following can be done:</p>
+
+<ol>
+  <li>Palette Context Menu<br />
+ 	Using the 3 Dots button at the right end of each palette will open a menu with the option to shuffle the colors of the palette.<br />
+ 	It means that hitting this button will add randomness to each color of the palette - A random small shift of the color.<br />
+There also many other options in that menu (Well, Color Grading is there!).</li>
+  <li>Drag &amp; Drop<br />
+ 	You may use Drag &amp; Drop to reorder colors within a palette and even to move colors from one palette to another one.<br />
+You may also Drag &amp; Drop to reorder the presets you saved.</li>
+  <li>Color Context Menu<br />
+ 	Use Right Click on the Color Swatches. It will allow you to edit the color, save it to Photoshop’s swatch or, god forbidden, delete it.</li>
+</ol>
+
+<h3 id="black--white-protection">Black / White Protection</h3>
+
+<p>In many images we have Black as the deepest shadow of the image and White as the brightest highlight. Moreover, usually we don’t want to add a color shift to those.<br />
+This is why we added the <code class="language-plaintext highlighter-rouge">Black / White Protection</code>. What it basically does is protects the edges of the Luminosity values (Blacks / Whites) from having a color shift due to the Color Grading.<br />
+What it basically does is add Black and White at the edges of the Gradient Map hence Black is mapped to Black and White is mapped to White which means they don’t get any color shift.<br />
+The user experiment with this till the best result in the user eyes.</p>
+
+<h3 id="black--white-images">Black &amp; White Images</h3>
+<p>Use <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a> to give Black &amp; White images special color (Tinting) treatment.<br />
+It works like magic and results can be mush more impressive than Duotone.<br />
+Pay with the Opacity of the Gradient Map Adjustment Layer to set the correct intensity of the tinting.</p>
+
+<h2 id="real-world-examples">Real World Examples</h2>
+
+<p>We can write a lot more and we intend to do so (Mostly Tips &amp; Tricks as the possibilities are endless).<br />
+But nothing is like some good real world examples.</p>
+
+<p><img src="/news/images/FixelRecolor1/FixelRecolorShowCaseImageAnimated.png" alt="" title="Figure 005 - Fixel Recolor Show Case" class="center-img" /></p>
+
+<p>In Figure 005 we composed few real world examples of real world images (See Credit section).<br />
+On the left side you can see the Reference / Source image used to extract the Color Palette which can be seen at the bottom.<br />
+On the right side you can see the Target Image which will be Color Graded using the Color Palette. On the same side you will be able to see the Output Image which is the Color Graded Target Image.</p>
+
+<p>It is easy to see the Style / color Transfer in action in those examples (There are 8 examples in the animation).<br />
+We are sure you can do even much better than this!</p>
+
+<h2 id="summary">Summary</h2>
+
+<p><a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a> introduces a new functionality which has never been available in Photoshop before - Automatic, Machine Learning Powered, analysis of image Color Palette.<br />
+Once the user (Be a Retoucher, Photographer or Designer) has such a functionality it can be used in many ways.<br />
+We tried making the UI of <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a> intuitive and supportive of any user workflow.<br />
+The UI allows the user to create presets of Color Palettes, Integrate Colors into Photoshop (Swatches) and most of all - Recolor / Color Grade / Style Transfer the image.</p>
+
+<p>Give it a try and share the results with us.<br />
+We’d love to hear what you can do and what you think.</p>
+
+<h2 id="image-credit">Image Credit</h2>
+<ul>
+  <li><a href="https://www.flickr.com/photos/30478819@N08/34870779781/">Product Page - Artist Paint Brush and Palette</a> - Credit to <a href="https://www.flickr.com/photos/30478819@N08/">Marco Verch</a>.</li>
+  <li><a href="https://www.flickr.com/photos/lennykphotography/26573473081/">Product Page - Tangerine Sunset Hilltop</a> - <a href="https://www.flickr.com/photos/lennykphotography/">Credit to Lenny K Photography</a>.</li>
+  <li><a href="https://pixabay.com/en/cold-snow-nature-fashion-hands-1284411/">Product Page - Girl in the Snow</a> - Credit to <a href="https://pixabay.com/en/users/Pexels-2286921/">Pexels</a>.</li>
+  <li><a href="https://www.flickr.com/photos/15481483@N06/6282949189/">Product Page - The End Is Here</a> - Credit to <a href="https://www.flickr.com/photos/15481483@N06/">Missi</a>.</li>
+  <li><a href="https://pixabay.com/en/girl-people-tenderness-woman-657753/">Product Page - Woman</a> - Credit to <a href="https://pixabay.com/en/users/Babienochka-818376/">Babienochka</a>.</li>
+</ul>
+
+<h2 id="resources">Resources</h2>
+<ul>
+  <li><a href="https://zevendesign.com/color-grading-gradient-maps-photoshop/">Zeven Design - Color Grading with Gradient Maps in Photoshop</a>.</li>
+  <li><a href="https://photoshopcafe.com/color-grade-photo-using-gradient-maps-photoshop/">Photoshop Cafe - How to Color Grade a Photo Using Gradient Maps in Photoshop</a>.</li>
+  <li><a href="https://retouchingacademy.com/using-gradient-maps-to-color-grade-your-photographs/">Retouching Academy - Using Gradient Maps to Color Grade Your Photographs</a>.</li>
+  <li><a href="https://phlearn.com/tutorial/color-tone-using-gradient-maps/">PHLEARN - How to Color Tone Using Gradient Maps</a>.</li>
+  <li><a href="https://www.diyphotography.net/add-different-looks-photos-using-gradient-map-layer/">Do It Yourself (DIY) Photography - Add Different Looks to Your Photos Using Only Gradient Map Layer</a>.</li>
+  <li><a href="https://fstoppers.com/education/quick-tips-how-color-grade-your-photos-using-gradient-maps-201756">FStoppers - Quick Tips on How to Color Grade Your Photos Using Gradient Maps</a>.</li>
+  <li><a href="https://fstoppers.com/education/making-color-grading-easy-using-color-palettes-109061">FStoppers - Making Color Grading Easy Using Color Palettes</a>.</li>
+</ul>
+
+<p>Key Words: <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Fixel Algorithms</a>, <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Fixel</a>, <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Fixel Recolor</a>, <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Color Grade</a>, <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Color Grading</a>, <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Color Mapping</a>, <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Style Transfer</a>, <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Color Transfer</a>, <a href="https://fixelalgorithms.co/products/recolor/" title="Fixel Recolor - Recoloring, Color Grading and Style Transfer for Photographers and Designers - Adobe Photoshop Plug In">Color Palette</a>, <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Photoshop</a>, <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Plug In</a>, <a href="https://fixelalgorithms.co" title="Fixel Algorithms">Photoshop Plug In</a>.</p>
+
+<!-- This is commented out -->
+
+:ET
